@@ -31,7 +31,9 @@ const GridLayout = () => {
 
       <Box gridArea={"main"}>
         <Item>
-          <Typography variant="h2">MAIN</Typography>
+          <Typography variant="h2">
+            WELCOME TO MOVIX, PLEASE SELECT A COUNTRY TO SHOW ITS LEAGUES
+          </Typography>
         </Item>
       </Box>
     </Box>
