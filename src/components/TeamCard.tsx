@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Team } from "../hooks/useTeams";
+import ExpandableText from "./ExpandableText";
 
 interface Props {
   teamData: Team;
@@ -22,6 +23,8 @@ const TeamCard = ({ teamData }: Props) => {
   const handleLanguageChange = (event: SelectChangeEvent) => {
     setSelectedLanguage(event.target.value as string);
   };
+
+  const descriptionLimit = 250;
 
   return (
     <Card
@@ -61,7 +64,7 @@ const TeamCard = ({ teamData }: Props) => {
           >
             <MenuItem value="EN">English</MenuItem>
             <MenuItem value="ES">Spanish</MenuItem>
-            {/* Add more languages as needed */}
+            <MenuItem value="FR">French</MenuItem>
           </Select>
         </FormControl>
         <Typography
@@ -70,7 +73,10 @@ const TeamCard = ({ teamData }: Props) => {
           mt={2}
           textAlign={"justify"}
         >
-          {teamData[`strDescription${selectedLanguage}` as keyof Team]}
+          <ExpandableText
+            text={teamData[`strDescription${selectedLanguage}` as keyof Team]}
+            limit={descriptionLimit}
+          />
         </Typography>
       </CardContent>
     </Card>
