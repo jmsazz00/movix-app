@@ -1,5 +1,4 @@
-import { Box, Divider, Typography } from "@mui/material";
-import { useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { ElementType } from "react";
 
 interface Props {
@@ -8,7 +7,11 @@ interface Props {
 }
 
 const MainHeading = ({ title, Icon }: Props) => {
-  const theme = useTheme();
+  const styles = {
+    fontSize: 64,
+    color: "#ffc107",
+  };
+
   return (
     <Box
       display="flex"
@@ -19,23 +22,19 @@ const MainHeading = ({ title, Icon }: Props) => {
       borderRadius={1}
       marginBottom={2}
     >
-      <Icon
-        style={{
-          fontSize: 64,
-          color: theme.palette.mode === "dark" ? "#ffa726" : "#ff9800",
-          marginRight: 5,
-        }}
-      ></Icon>
+      <Icon style={styles}></Icon>
       <Typography
         variant="h3"
         style={{
           fontWeight: "bold",
           textTransform: "uppercase",
           letterSpacing: "1px",
+          margin: "0 5px",
         }}
       >
         {title}
       </Typography>
+      <Icon style={styles}></Icon>
     </Box>
   );
 };

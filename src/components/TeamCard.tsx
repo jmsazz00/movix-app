@@ -8,6 +8,7 @@ import {
   FormControl,
   InputLabel,
   SelectChangeEvent,
+  useTheme,
 } from "@mui/material";
 import { useState } from "react";
 import { Team } from "../services/TeamService";
@@ -20,6 +21,8 @@ interface Props {
 const TeamCard = ({ teamData }: Props) => {
   const [selectedLanguage, setSelectedLanguage] = useState("EN");
 
+  const theme = useTheme();
+
   const handleLanguageChange = (event: SelectChangeEvent) => {
     setSelectedLanguage(event.target.value as string);
   };
@@ -29,11 +32,15 @@ const TeamCard = ({ teamData }: Props) => {
   return (
     <Card
       sx={{
-        width: 400,
+        maxWidth: 400,
         height: "100%",
         display: "flex",
         flexDirection: "column",
         m: "0 auto",
+        bgcolor:
+          theme.palette.mode === "light"
+            ? "#fafafa"
+            : theme.palette.background.default,
       }}
     >
       <CardMedia
