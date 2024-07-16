@@ -3,7 +3,6 @@ import { CssBaseline, createTheme } from "@mui/material";
 import { ReactNode, createContext, useMemo, useState } from "react";
 
 interface ColorModeType {
-  colorMode: "light" | "dark";
   toggleColorMode: () => void;
 }
 
@@ -22,11 +21,10 @@ const ColorModeProvider = ({ children }: Props) => {
       toggleColorMode: () => {
         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
       },
-      colorMode: mode,
     }),
-    [mode]
+    []
   );
-  
+
   const theme = useMemo(
     () =>
       createTheme({

@@ -2,11 +2,11 @@ import { AppBar, Box, Toolbar } from "@mui/material";
 import whiteLogo from "../assets/movix-white.png";
 import darkLogo from "../assets/movix-black.png";
 import ModeSwitcher from "./ModeSwitcher";
-import { useContext } from "react";
-import { ColorModeContext } from "../theme";
+import { useTheme } from "@mui/material";
 
 const NavBar = () => {
-  const { colorMode } = useContext(ColorModeContext);
+  const theme = useTheme();
+
   return (
     <Box>
       <AppBar position="static">
@@ -18,7 +18,7 @@ const NavBar = () => {
               cursor: "pointer",
             }}
           >
-            <img src={colorMode === "dark" ? darkLogo : whiteLogo} />
+            <img src={theme.palette.mode === "dark" ? darkLogo : whiteLogo} />
           </Box>
           <ModeSwitcher />
         </Toolbar>

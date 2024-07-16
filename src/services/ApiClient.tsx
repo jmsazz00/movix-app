@@ -15,12 +15,6 @@ class ApiClient<T> {
   getAll = () => {
     return this.apiClient.get<T>(this.endpoint).then((res) => res.data);
   };
-
-  get = (id?: number | string) => {
-    return this.apiClient
-      .get<T>(this.endpoint + "/" + id)
-      .then((res) => res.data);
-  };
 }
 
 export default ApiClient;

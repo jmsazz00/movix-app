@@ -10,7 +10,7 @@ import {
   SelectChangeEvent,
 } from "@mui/material";
 import { useState } from "react";
-import { Team } from "../hooks/useTeams";
+import { Team } from "../services/TeamService";
 import ExpandableText from "./ExpandableText";
 
 interface Props {
@@ -33,6 +33,7 @@ const TeamCard = ({ teamData }: Props) => {
         height: "100%",
         display: "flex",
         flexDirection: "column",
+        m: "0 auto",
       }}
     >
       <CardMedia
@@ -72,6 +73,7 @@ const TeamCard = ({ teamData }: Props) => {
           color="text.secondary"
           mt={2}
           textAlign={"justify"}
+          component={"div"}
         >
           <ExpandableText
             text={teamData[`strDescription${selectedLanguage}` as keyof Team]}
