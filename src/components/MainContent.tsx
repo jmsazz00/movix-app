@@ -7,7 +7,6 @@ const MainContent = () => {
     <>
       <MainHeading title="top teams" Icon={StarBorderPurple500TwoToneIcon} />
       <HighlightedTeams />
-      <MainHeading title="top leagues" Icon={StarBorderPurple500TwoToneIcon} />
     </>
   );
 };

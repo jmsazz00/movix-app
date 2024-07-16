@@ -4,9 +4,17 @@ import HighlightedTeam from "./HighlightedTeam";
 const HighlightedTeams = () => {
   const highlightedTeams = [
     "Barcelona",
-    "Arsenal",
-    "Chelsea",
     "Manchester City",
+    "Real Madrid",
+    "Bayern Munich",
+    "Liverpool",
+    "Manchester United",
+    "Atletico Madrid",
+    "Chelsea",
+    "Arsenal",
+    "Juventus",
+    "Inter Milan",
+    "Roma",
   ];
   const theme = useTheme();
 

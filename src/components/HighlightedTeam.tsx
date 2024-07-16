@@ -1,3 +1,4 @@
+import { Alert } from "@mui/material";
 import useTeam from "../hooks/useTeam";
 import TeamCard from "./TeamCard";
 import TeamCardSkeleton from "./TeamCardSkeleton";
@@ -9,7 +10,8 @@ interface Props {
 const HighlightedTeam = ({ teamName }: Props) => {
   const { data: team, isLoading, error } = useTeam(teamName);
 
-  if (!isLoading && !team) return null;
+  if (!isLoading && (!team || !team.teams))
+    return <Alert severity="error">Couldn't retrieve team.</Alert>;
 
   if (error) return <>{error}</>;
 
