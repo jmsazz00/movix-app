@@ -1,40 +1,62 @@
-import { Grid, Paper, useTheme } from "@mui/material";
+import { Box, Button, Grid, Paper, useTheme } from "@mui/material";
 import HighlightedTeam from "./HighlightedTeam";
+import { useState } from "react";
 
 const HighlightedTeams = () => {
-  const highlightedTeams = [
-    "Barcelona",
-    "Manchester City",
-    "Real Madrid",
-    "Bayern Munich",
-    "Liverpool",
-    "Manchester United",
-    "Atletico Madrid",
-    "Chelsea",
-    "Arsenal",
-    "Juventus",
-    "Inter Milan",
-    "Roma",
-  ];
+  const INITIAL_TEAMS_LIMIT = 6;
+  const [teamsLimit, setTeamsLimit] = useState(INITIAL_TEAMS_LIMIT);
   const theme = useTheme();
 
+  const teamsToShow = highlightedTeams.slice(0, teamsLimit);
+
   return (
-    <Grid container spacing={3}>
-      {highlightedTeams.map((team) => (
-        <Grid item xs={12} sm={6} md={4} key={team}>
-          <Paper
-            sx={{
-              p: 2,
-              minHeight: "400px",
-              bgcolor: theme.palette.mode === "dark" ? "#000000cc" : "#e3f2fd",
-            }}
+    <>
+      <Grid container spacing={3}>
+        {teamsToShow.map((team) => (
+          <Grid item xs={12} sm={6} md={4} key={team}>
+            <Paper
+              sx={{
+                p: 2,
+                minHeight: "400px",
+                bgcolor:
+                  theme.palette.mode === "dark" ? "#000000cc" : "#e3f2fd",
+              }}
+            >
+              <HighlightedTeam teamName={team} />
+            </Paper>
+          </Grid>
+        ))}
+      </Grid>
+      {teamsLimit >= highlightedTeams.length ? null : (
+        <Box display={"flex"} justifyContent={"flex-end"} m={2}>
+          <Button
+            variant="outlined"
+            onClick={() => setTeamsLimit(teamsLimit + INITIAL_TEAMS_LIMIT)}
           >
-            <HighlightedTeam teamName={team} />
-          </Paper>
-        </Grid>
-      ))}
-    </Grid>
+            See More...
+          </Button>
+        </Box>
+      )}
+    </>
   );
 };
 
 export default HighlightedTeams;
+
+const highlightedTeams = [
+  "Barcelona",
+  "Manchester City",
+  "Real Madrid",
+  "Bayern Munich",
+  "Liverpool",
+  "Manchester United",
+  "Atletico Madrid",
+  "Chelsea",
+  "Arsenal",
+  "Juventus",
+  "Inter Milan",
+  "Roma",
+  "Marseille",
+  "Benfica",
+  "AC Milan",
+];
