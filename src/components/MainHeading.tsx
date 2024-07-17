@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { ElementType } from "react";
 
 interface Props {
@@ -13,28 +13,38 @@ const MainHeading = ({ title, Icon }: Props) => {
   };
 
   return (
-    <Box
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      flexDirection="row"
-      padding={2}
-      borderRadius={1}
-      marginBottom={2}
-    >
-      <Icon style={styles}></Icon>
-      <Typography
-        variant="h3"
-        style={{
-          fontWeight: "bold",
-          textTransform: "uppercase",
-          letterSpacing: "1px",
-          margin: "0 5px",
-        }}
+    <Box marginBottom={4}>
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        flexDirection="row"
+        padding={1}
+        borderRadius={1}
       >
-        {title}
-      </Typography>
-      <Icon style={styles}></Icon>
+        <Icon style={styles}></Icon>
+        <Typography
+          variant="h3"
+          style={{
+            fontWeight: "bold",
+            textTransform: "uppercase",
+            letterSpacing: "1px",
+            margin: "0 5px",
+          }}
+        >
+          {title}
+        </Typography>
+        <Icon style={styles}></Icon>
+      </Box>
+      <Divider
+        sx={{
+          width: "125px",
+          borderBottomWidth: 3,
+          borderColor: "#ffc107",
+          margin: "0 auto",
+          borderRadius: "5px",
+        }}
+      />
     </Box>
   );
 };
