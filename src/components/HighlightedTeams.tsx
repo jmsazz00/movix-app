@@ -33,7 +33,7 @@ const HighlightedTeams = () => {
             variant="outlined"
             onClick={() => setTeamsLimit(teamsLimit + INITIAL_TEAMS_LIMIT)}
           >
-            See More...
+            Load More...
           </Button>
         </Box>
       )}
