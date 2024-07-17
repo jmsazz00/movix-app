@@ -15,8 +15,7 @@ const ExpandableText = ({ text, limit, parentId }: Props) => {
     if (!expanded && !initialRender) {
       const element = document.getElementById(parentId);
       setTimeout(() => {
-        if (expanded)
-          window.scroll({ top: element?.offsetTop, behavior: "smooth" });
+        window.scroll({ top: element?.offsetTop, behavior: "smooth" });
       }, 450);
     }
   }, [expanded, initialRender]);

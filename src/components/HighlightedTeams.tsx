@@ -53,10 +53,10 @@ const highlightedTeams = [
   "Atletico Madrid",
   "Chelsea",
   "Arsenal",
-  "Juventus",
+  "Lyon",
   "Inter Milan",
   "Roma",
-  "Marseille",
+  "Monaco",
   "Benfica",
   "AC Milan",
 ];
