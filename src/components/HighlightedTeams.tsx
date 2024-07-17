@@ -10,7 +10,7 @@ const HighlightedTeams = () => {
   const teamsToShow = highlightedTeams.slice(0, teamsLimit);
 
   return (
-    <>
+    <Box>
       <Grid container spacing={3}>
         {teamsToShow.map((team) => (
           <Grid item xs={12} sm={6} md={4} key={team}>
@@ -37,7 +37,7 @@ const HighlightedTeams = () => {
           </Button>
         </Box>
       )}
-    </>
+    </Box>
   );
 };
 
