@@ -86,7 +86,6 @@ const TeamCard = ({ teamData }: Props) => {
             <ExpandableText
               text={teamData[`strDescription${selectedLanguage}` as keyof Team]}
               limit={descriptionLimitPx}
-              parentId={teamData.idTeam}
             />
           </Typography>
         </CardContent>

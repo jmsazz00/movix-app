@@ -1,40 +1,37 @@
 import { Alert, Button, Collapse } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 
 interface Props {
   text: string;
   limit: number;
-  parentId: string;
 }
 
-const ExpandableText = ({ text, limit, parentId }: Props) => {
+const ExpandableText = ({ text, limit }: Props) => {
   const [expanded, setExpanded] = useState(false);
-  const [initialRender, setInitialRender] = useState(true);
+  const textRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!expanded && !initialRender) {
-      const element = document.getElementById(parentId);
-      setTimeout(() => {
-        window.scroll({ top: element?.offsetTop, behavior: "smooth" });
-      }, 450);
-    }
-  }, [expanded, initialRender]);
+  if (textRef.current && textRef.current.clientHeight <= limit)
+    return (
+      <div ref={textRef} style={{ whiteSpace: "pre-wrap" }}>
+        {text}
+      </div>
+    );
 
   if (!text) return <Alert severity="error">Not currently available</Alert>;
 
-  if (text.length <= limit) return <div>{text}</div>;
-
   return (
     <div>
-      <Collapse in={expanded} collapsedSize={limit}>
-        <div>{text}</div>
+      <Collapse in={expanded} collapsedSize={`${limit}px`}>
+        <div ref={textRef} style={{ whiteSpace: "pre-wrap" }}>
+          {text}
+        </div>
       </Collapse>
+
       <Button
+        aria-expanded={expanded}
+        aria-controls="expandable-text"
         size="small"
-        onClick={() => {
-          setExpanded(!expanded);
-          if (initialRender) setInitialRender(false);
-        }}
+        onClick={() => setExpanded(!expanded)}
       >
         {expanded ? "Show Less" : "Read More"}
       </Button>
