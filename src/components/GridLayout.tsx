@@ -1,8 +1,8 @@
 import { Box, Paper, styled } from "@mui/material";
 import NavBar from "./NavBar";
-import { Typography } from "@mui/material";
 import CountriesList from "./CountriesList";
 import MainContent from "./MainContent";
+import { useState } from "react";
 
 export const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -13,6 +13,8 @@ export const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const GridLayout = () => {
+  const [currentCountry, setCurrentCountry] = useState("");
+
   return (
     <Box
       display={"grid"}
@@ -26,15 +28,16 @@ const GridLayout = () => {
 
       <Box gridArea={"aside"} sx={{ display: { xs: "none", md: "block" } }}>
         <Item>
-          <CountriesList />
+          <CountriesList
+            onSelectCountry={(e) => setCurrentCountry(e)}
+            selectedCountry={currentCountry}
+          />
         </Item>
       </Box>
 
       <Box gridArea={"main"}>
         <Item>
-          <Typography variant="h2">
-            <MainContent />
-          </Typography>
+          <MainContent selectedCountry={currentCountry} />
         </Item>
       </Box>
     </Box>

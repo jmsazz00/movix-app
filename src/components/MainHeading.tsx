@@ -38,7 +38,7 @@ const MainHeading = ({ title, Icon }: Props) => {
       </Box>
       <Divider
         sx={{
-          width: "125px",
+          width: "175px",
           borderBottomWidth: 3,
           borderColor: "#ffc107",
           margin: "0 auto",

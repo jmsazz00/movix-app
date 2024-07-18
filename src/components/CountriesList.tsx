@@ -8,7 +8,12 @@ import {
 } from "@mui/material";
 import useCountries from "../hooks/useCountries";
 
-const CountriesList = () => {
+interface Props {
+  selectedCountry: string;
+  onSelectCountry: (c: string) => void;
+}
+
+const CountriesList = ({ selectedCountry, onSelectCountry }: Props) => {
   const { data: list, isLoading, error } = useCountries();
 
   const theme = useTheme();
@@ -30,33 +35,52 @@ const CountriesList = () => {
       return {
         name_en: option?.code,
         flag_32_url: country.flag_url_32,
+        fullName: country.name_en,
       };
     });
 
   return (
     <Stack spacing={1} divider={<Divider flexItem />}>
-      {selectedCountries?.map((c) => (
-        <Box
-          key={c.name_en}
-          sx={{
-            cursor: "pointer",
-            display: "flex",
-            pl: 3,
-            py: 0.75,
-            transition: "background-color 0.3s ease",
-            "&:hover": {
-              backgroundColor:
-                theme.palette.mode === "light" ? "#f0f0f0" : "#2b333e",
-              "& .MuiTypography-root": {
-                fontWeight: "bold",
+      {selectedCountries?.map((c) => {
+        const isActive = selectedCountry === c.fullName;
+
+        return (
+          <Box
+            onClick={() => onSelectCountry(c.fullName)}
+            key={c.name_en}
+            sx={{
+              cursor: "pointer",
+              display: "flex",
+              pl: 3,
+              py: 0.75,
+              transition: "background-color 0.3s ease",
+              borderRadius: "2px",
+              backgroundColor: isActive
+                ? theme.palette.mode === "light"
+                  ? "#f0f0f0"
+                  : "#2b333e"
+                : "transparent",
+              "&:hover": {
+                backgroundColor:
+                  theme.palette.mode === "light" ? "#f0f0f0" : "#2b333e",
+                "& .MuiTypography-root": {
+                  fontWeight: "bold",
+                },
               },
-            },
-          }}
-        >
-          <img src={c.flag_32_url} style={styles} />
-          <Typography sx={{ alignSelf: "center" }}>{c.name_en}</Typography>
-        </Box>
-      ))}
+            }}
+          >
+            <img src={c.flag_32_url} style={styles} />
+            <Typography
+              sx={{
+                alignSelf: "center",
+                fontWeight: isActive ? "bold" : "normal",
+              }}
+            >
+              {c.name_en}
+            </Typography>
+          </Box>
+        );
+      })}
     </Stack>
   );
 };

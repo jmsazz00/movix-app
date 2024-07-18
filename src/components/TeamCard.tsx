@@ -47,7 +47,7 @@ const TeamCard = ({ teamData }: Props) => {
         <CardMedia
           component="img"
           height="200"
-          image={teamData.strBadge}
+          image={teamData.strBadge + "/small"}
           sx={{ objectFit: "contain", paddingTop: 2 }}
           alt={teamData.strTeam}
         />
