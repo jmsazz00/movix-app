@@ -1,6 +1,7 @@
 import { Box, Button, Grid, Paper, useTheme } from "@mui/material";
 import HighlightedTeam from "./HighlightedTeam";
 import { useState } from "react";
+import highlightedTeams from "../options/highlightedTeams.1";
 
 const HighlightedTeams = () => {
   const INITIAL_TEAMS_LIMIT = 6;
@@ -42,21 +43,3 @@ const HighlightedTeams = () => {
 };
 
 export default HighlightedTeams;
-
-const highlightedTeams = [
-  "Barcelona",
-  "Manchester City",
-  "Real Madrid",
-  "Bayern Munich",
-  "Liverpool",
-  "Manchester United",
-  "Atletico Madrid",
-  "Chelsea",
-  "Arsenal",
-  "Lyon",
-  "Inter Milan",
-  "Roma",
-  "Monaco",
-  "Benfica",
-  "AC Milan",
-];
