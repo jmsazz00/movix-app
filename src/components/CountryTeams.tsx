@@ -25,7 +25,16 @@ const CountryTeams = ({ countryName }: Props) => {
           <>
             {skeletonCount.map((sk) => (
               <Grid item xs={12} sm={6} md={4} key={sk}>
-                <TeamCardSkeleton />
+                <Paper
+                  sx={{
+                    p: 2,
+                    minHeight: "400px",
+                    bgcolor:
+                      theme.palette.mode === "dark" ? "#000000cc" : "#e3f2fd",
+                  }}
+                >
+                  <TeamCardSkeleton />
+                </Paper>
               </Grid>
             ))}
           </>

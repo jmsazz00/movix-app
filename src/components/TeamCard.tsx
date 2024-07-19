@@ -1,34 +1,23 @@
 import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  SelectChangeEvent,
-  useTheme,
-  Rating,
   Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Divider,
+  Rating,
+  Typography,
+  useTheme,
 } from "@mui/material";
-import { useState } from "react";
-import { Team } from "../services/TeamService";
-import ExpandableText from "./ExpandableText";
 import calculateRating from "../options/calculateRating";
+import { Team } from "../services/TeamService";
+import TeamShortDesc from "./TeamShortDesc";
 
 interface Props {
   teamData: Team;
 }
 
 const TeamCard = ({ teamData }: Props) => {
-  const [selectedLanguage, setSelectedLanguage] = useState("EN");
-
   const theme = useTheme();
-
-  const handleLanguageChange = (event: SelectChangeEvent) => {
-    setSelectedLanguage(event.target.value as string);
-  };
 
   const {
     idTeam,
@@ -38,9 +27,10 @@ const TeamCard = ({ teamData }: Props) => {
     strCountry,
     strLeague,
     strStadium,
+    strDescriptionEN,
   } = teamData;
 
-  const descriptionLimitPx = 100;
+  const descriptionLimit = 180;
 
   return (
     <div id={idTeam}>
@@ -85,34 +75,12 @@ const TeamCard = ({ teamData }: Props) => {
               sx={{ m: 1 }}
             />
           </Box>
-          <FormControl sx={{ mt: 2, minWidth: 120 }}>
-            <InputLabel id="language-label">Language</InputLabel>
-            <Select
-              labelId="language-label"
-              value={selectedLanguage}
-              onChange={handleLanguageChange}
-            >
-              <MenuItem value="EN">English</MenuItem>
-              <MenuItem value="ES">Spanish</MenuItem>
-              <MenuItem value="FR">French</MenuItem>
-            </Select>
-          </FormControl>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            mt={2}
-            textAlign={"justify"}
-            component={"div"}
-          >
-            <ExpandableText
-              text={
-                teamData[
-                  `strDescription${selectedLanguage}` as keyof Team
-                ] as string
-              }
-              limit={descriptionLimitPx}
-            />
-          </Typography>
+          <Divider sx={{ width: "200px", m: "5px auto" }} />
+          <TeamShortDesc
+            idTeam={idTeam}
+            desc={strDescriptionEN}
+            limit={descriptionLimit}
+          />
         </CardContent>
       </Card>
     </div>
