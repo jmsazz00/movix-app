@@ -2,6 +2,7 @@ import ApiClient from "./ApiClient";
 
 export interface Team {
   idTeam: string;
+  intLoved: number;
   strTeam: string;
   strTeamShort: string;
   strSport: string;

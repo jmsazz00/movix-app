@@ -9,10 +9,13 @@ import {
   InputLabel,
   SelectChangeEvent,
   useTheme,
+  Rating,
+  Box,
 } from "@mui/material";
 import { useState } from "react";
 import { Team } from "../services/TeamService";
 import ExpandableText from "./ExpandableText";
+import calculateRating from "../options/calculateRating";
 
 interface Props {
   teamData: Team;
@@ -27,10 +30,20 @@ const TeamCard = ({ teamData }: Props) => {
     setSelectedLanguage(event.target.value as string);
   };
 
+  const {
+    idTeam,
+    intLoved,
+    strBadge,
+    strTeam,
+    strCountry,
+    strLeague,
+    strStadium,
+  } = teamData;
+
   const descriptionLimitPx = 100;
 
   return (
-    <div id={teamData.idTeam}>
+    <div id={idTeam}>
       <Card
         sx={{
           maxWidth: 400,
@@ -47,23 +60,31 @@ const TeamCard = ({ teamData }: Props) => {
         <CardMedia
           component="img"
           height="200"
-          image={teamData.strBadge + "/small"}
+          image={strBadge + "/small"}
           sx={{ objectFit: "contain", paddingTop: 2 }}
-          alt={teamData.strTeam}
+          alt={strTeam}
         />
         <CardContent>
           <Typography variant="h5" gutterBottom>
-            {teamData.strTeam}
+            {strTeam}
           </Typography>
           <Typography variant="body2" color="text.secondary" paragraph>
-            <strong>Country:</strong> {teamData.strCountry}
+            <strong>Country:</strong> {strCountry}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            <strong>League:</strong> {teamData.strLeague}
+            <strong>League:</strong> {strLeague}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            <strong>Stadium:</strong> {teamData.strStadium}
+            <strong>Stadium:</strong> {strStadium}
           </Typography>
+          <Box>
+            <Rating
+              value={calculateRating(intLoved)}
+              precision={0.1}
+              readOnly
+              sx={{ m: 1 }}
+            />
+          </Box>
           <FormControl sx={{ mt: 2, minWidth: 120 }}>
             <InputLabel id="language-label">Language</InputLabel>
             <Select
@@ -84,7 +105,11 @@ const TeamCard = ({ teamData }: Props) => {
             component={"div"}
           >
             <ExpandableText
-              text={teamData[`strDescription${selectedLanguage}` as keyof Team]}
+              text={
+                teamData[
+                  `strDescription${selectedLanguage}` as keyof Team
+                ] as string
+              }
               limit={descriptionLimitPx}
             />
           </Typography>
