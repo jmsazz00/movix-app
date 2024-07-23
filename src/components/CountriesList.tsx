@@ -64,9 +64,6 @@ const CountriesList = ({ selectedCountry, onSelectCountry }: Props) => {
               "&:hover": {
                 backgroundColor:
                   theme.palette.mode === "light" ? "#f0f0f0" : "#2b333e",
-                "& .MuiTypography-root": {
-                  fontWeight: "bold",
-                },
               },
             }}
           >
