@@ -1,7 +1,7 @@
 import { Box, Button, Grid } from "@mui/material";
 import HighlightedTeam from "./HighlightedTeam";
 import { useState } from "react";
-import highlightedTeams from "../options/highlightedTeams.1";
+import highlightedTeams from "../options/highlightedTeam";
 import CustomGridItem from "./CustomGridItem";
 
 const HighlightedTeams = () => {

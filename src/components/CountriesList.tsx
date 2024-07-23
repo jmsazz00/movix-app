@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import useCountries from "../hooks/useCountries";
 import options from "../options/countries";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 interface Props {
   selectedCountry: string;
@@ -20,7 +21,7 @@ const CountriesList = ({ selectedCountry, onSelectCountry }: Props) => {
   const theme = useTheme();
 
   if (isLoading) return <CircularProgress />;
-  if (error) console.log(error);
+  if (error) return <ErrorOutlineIcon color="error" fontSize="large" />;
 
   const styles = {
     width: "30px",

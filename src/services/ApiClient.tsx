@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 const apiBase = axios.create({
-  baseURL: "https://www.thesportsdb.com/api/v1/json/3",
+  baseURL: "https://www.thesportsdb.com/api/v1/json/3x",
 });
 
 class ApiClient<T> {
