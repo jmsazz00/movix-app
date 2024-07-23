@@ -1,12 +1,12 @@
-import { Box, Button, Grid, Paper, useTheme } from "@mui/material";
+import { Box, Button, Grid } from "@mui/material";
 import HighlightedTeam from "./HighlightedTeam";
 import { useState } from "react";
 import highlightedTeams from "../options/highlightedTeams.1";
+import CustomGridItem from "./CustomGridItem";
 
 const HighlightedTeams = () => {
   const INITIAL_TEAMS_LIMIT = 6;
   const [teamsLimit, setTeamsLimit] = useState(INITIAL_TEAMS_LIMIT);
-  const theme = useTheme();
 
   const teamsToShow = highlightedTeams.slice(0, teamsLimit);
 
@@ -14,18 +14,9 @@ const HighlightedTeams = () => {
     <Box>
       <Grid container spacing={3}>
         {teamsToShow.map((team) => (
-          <Grid item xs={12} sm={6} md={4} key={team}>
-            <Paper
-              sx={{
-                p: 2,
-                minHeight: "400px",
-                bgcolor:
-                  theme.palette.mode === "dark" ? "#000000cc" : "#e3f2fd",
-              }}
-            >
-              <HighlightedTeam teamName={team} />
-            </Paper>
-          </Grid>
+          <CustomGridItem key={team}>
+            <HighlightedTeam teamName={team} />
+          </CustomGridItem>
         ))}
       </Grid>
       {teamsLimit >= highlightedTeams.length ? null : (
