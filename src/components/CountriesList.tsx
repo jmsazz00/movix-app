@@ -9,16 +9,23 @@ import {
 import useCountries from "../hooks/useCountries";
 import options from "../options/countries";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import useTeamQueryStore from "../store/TeamQueryStore";
+import { useCallback } from "react";
 
-interface Props {
-  selectedCountry: string;
-  onSelectCountry: (c: string) => void;
-}
-
-const CountriesList = ({ selectedCountry, onSelectCountry }: Props) => {
+const CountriesList = () => {
   const { data: list, isLoading, error } = useCountries();
 
+  const selectedCountry = useTeamQueryStore((t) => t.teamQuery.countryName);
+  const onSelectCountry = useTeamQueryStore((t) => t.setCountryName);
+
   const theme = useTheme();
+
+  const handleSelectCountry = useCallback(
+    (fullName: string) => {
+      onSelectCountry(fullName);
+    },
+    [onSelectCountry]
+  );
 
   if (isLoading) return <CircularProgress />;
   if (error) return <ErrorOutlineIcon color="error" fontSize="large" />;
@@ -48,7 +55,7 @@ const CountriesList = ({ selectedCountry, onSelectCountry }: Props) => {
 
         return (
           <Box
-            onClick={() => onSelectCountry(c.fullName)}
+            onClick={() => handleSelectCountry(c.fullName)}
             key={c.name_en}
             sx={{
               cursor: "pointer",

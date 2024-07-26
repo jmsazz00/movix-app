@@ -2,15 +2,11 @@ import StarBorderPurple500TwoToneIcon from "@mui/icons-material/StarBorderPurple
 import MainHeading from "./MainHeading";
 import HighlightedTeams from "./HighlightedTeams";
 import CountryTeams from "./CountryTeams";
-import SortOption from "../entities/SortOption";
+import useTeamQueryStore from "../store/TeamQueryStore";
 
-interface Props {
-  selectedCountry: string;
-  sortBy: SortOption;
-  setSortBy: (sortBy: SortOption) => void;
-}
+const MainContent = () => {
+  const selectedCountry = useTeamQueryStore((t) => t.teamQuery.countryName);
 
-const MainContent = ({ selectedCountry, sortBy, setSortBy }: Props) => {
   return selectedCountry ? (
     <>
       <MainHeading
@@ -19,11 +15,7 @@ const MainContent = ({ selectedCountry, sortBy, setSortBy }: Props) => {
         } teams`}
         Icon={StarBorderPurple500TwoToneIcon}
       />
-      <CountryTeams
-        sortBy={sortBy}
-        setSortBy={setSortBy}
-        countryName={selectedCountry}
-      />
+      <CountryTeams />
     </>
   ) : (
     <>

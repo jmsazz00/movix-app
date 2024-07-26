@@ -2,8 +2,6 @@ import { Box, Paper, styled } from "@mui/material";
 import NavBar from "./NavBar";
 import CountriesList from "./CountriesList";
 import MainContent from "./MainContent";
-import { useState } from "react";
-import SortOption from "../entities/SortOption";
 
 export const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -13,9 +11,6 @@ export const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const GridLayout = () => {
-  const [currentCountry, setCurrentCountry] = useState("");
-  const [sortBy, setSortBy] = useState<SortOption>("name_asc");
-
   return (
     <Box
       display={"grid"}
@@ -29,20 +24,13 @@ const GridLayout = () => {
 
       <Box gridArea={"aside"} sx={{ display: { xs: "none", md: "block" } }}>
         <Item>
-          <CountriesList
-            onSelectCountry={(e) => setCurrentCountry(e)}
-            selectedCountry={currentCountry}
-          />
+          <CountriesList />
         </Item>
       </Box>
 
       <Box gridArea={"main"}>
         <Item>
-          <MainContent
-            sortBy={sortBy}
-            setSortBy={setSortBy}
-            selectedCountry={currentCountry}
-          />
+          <MainContent />
         </Item>
       </Box>
     </Box>

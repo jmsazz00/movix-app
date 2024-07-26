@@ -4,17 +4,15 @@ import TeamCard from "./TeamCard";
 import TeamCardSkeleton from "./TeamCardSkeleton";
 import CustomGridItem from "./CustomGridItem";
 import SortingOptions from "./SortingOptions";
-import SortOption from "../entities/SortOption";
 import { useTeamSorting } from "../hooks/useTeamSorting";
+import useTeamQueryStore from "../store/TeamQueryStore";
 
-interface Props {
-  countryName: string;
-  sortBy: SortOption;
-  setSortBy: (sortBy: SortOption) => void;
-}
+const CountryTeams = () => {
+  const countryName = useTeamQueryStore((t) => t.teamQuery.countryName);
+  const sortBy = useTeamQueryStore((t) => t.teamQuery.sortBy);
+  const setSortBy = useTeamQueryStore((t) => t.setSortBy);
 
-const CountryTeams = ({ countryName, sortBy, setSortBy }: Props) => {
-  const { data: teams, isLoading, error } = useTeams(countryName);
+  const { data: teams, isLoading, error } = useTeams(countryName!);
   const skeletonCount = [1, 2, 3, 4, 5, 6];
 
   if (error) return <Alert severity="error">An unexpected error occured</Alert>;
