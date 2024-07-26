@@ -41,6 +41,7 @@ const TeamCard = ({ teamData }: Props) => {
           display: "flex",
           flexDirection: "column",
           m: "0 auto",
+          textAlign: "center",
           bgcolor:
             theme.palette.mode === "light"
               ? "#fafafa"

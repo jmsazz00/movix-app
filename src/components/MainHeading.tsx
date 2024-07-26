@@ -13,7 +13,7 @@ const MainHeading = ({ title, Icon }: Props) => {
   };
 
   return (
-    <Box marginBottom={4}>
+    <Box marginBottom={1.5}>
       <Box
         display="flex"
         alignItems="center"
@@ -30,6 +30,7 @@ const MainHeading = ({ title, Icon }: Props) => {
             textTransform: "uppercase",
             letterSpacing: "1px",
             margin: "0 5px",
+            textAlign: "center",
           }}
         >
           {title}
