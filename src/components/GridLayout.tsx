@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 import CountriesList from "./CountriesList";
 import MainContent from "./MainContent";
 import { useState } from "react";
-import { SortOption } from "./SortingOptions";
+import SortOption from "../entities/SortOption";
 
 export const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -38,7 +38,11 @@ const GridLayout = () => {
 
       <Box gridArea={"main"}>
         <Item>
-          <MainContent sortBy={sortBy} setSortBy={setSortBy} selectedCountry={currentCountry}  />
+          <MainContent
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+            selectedCountry={currentCountry}
+          />
         </Item>
       </Box>
     </Box>

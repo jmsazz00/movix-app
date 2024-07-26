@@ -3,7 +3,8 @@ import useTeams from "../hooks/useTeams";
 import TeamCard from "./TeamCard";
 import TeamCardSkeleton from "./TeamCardSkeleton";
 import CustomGridItem from "./CustomGridItem";
-import SortingOptions, { SortOption } from "./SortingOptions";
+import SortingOptions from "./SortingOptions";
+import SortOption from "../entities/SortOption";
 import { useTeamSorting } from "../hooks/useTeamSorting";
 
 interface Props {

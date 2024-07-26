@@ -2,7 +2,7 @@ import StarBorderPurple500TwoToneIcon from "@mui/icons-material/StarBorderPurple
 import MainHeading from "./MainHeading";
 import HighlightedTeams from "./HighlightedTeams";
 import CountryTeams from "./CountryTeams";
-import { SortOption } from "./SortingOptions";
+import SortOption from "../entities/SortOption";
 
 interface Props {
   selectedCountry: string;

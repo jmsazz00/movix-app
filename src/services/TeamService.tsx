@@ -1,21 +1,5 @@
 import ApiClient from "./ApiClient";
-
-export interface Team {
-  idTeam: string;
-  intLoved: number;
-  strTeam: string;
-  strTeamShort: string;
-  strSport: string;
-  strLeague: string;
-  strStadium: string;
-  strDescriptionEN: string;
-  strWebsite: string;
-  strFacebook: string;
-  strTwitter: string;
-  strInstagram: string;
-  strBadge: string;
-  strCountry: string;
-}
+import Team from "../entities/Team";
 
 export interface TeamList {
   teams: Team[];

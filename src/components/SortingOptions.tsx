@@ -5,8 +5,7 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
-
-export type SortOption = "name_asc" | "name_desc" | "rating";
+import SortOption from "../entities/SortOption";
 
 interface SortingOptionsProps {
   value: SortOption;

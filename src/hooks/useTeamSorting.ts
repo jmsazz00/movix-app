@@ -1,5 +1,5 @@
-import { Team } from "../services/TeamService";
-import { SortOption } from "../components/SortingOptions";
+import Team from "../entities/Team";
+import SortOption from "../entities/SortOption";
 
 export const useTeamSorting = (sortBy: SortOption, teams: Team[]) => {
   if (!teams) return [];
