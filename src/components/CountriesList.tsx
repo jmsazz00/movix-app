@@ -27,7 +27,12 @@ const CountriesList = () => {
     [onSelectCountry]
   );
 
-  if (isLoading) return <CircularProgress />;
+  if (isLoading)
+    return (
+      <Box textAlign={"center"}>
+        <CircularProgress />
+      </Box>
+    );
   if (error) return <ErrorOutlineIcon color="error" fontSize="large" />;
 
   const styles = {
