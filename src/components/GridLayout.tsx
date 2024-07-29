@@ -1,5 +1,4 @@
 import { Box, Paper, styled } from "@mui/material";
-import NavBar from "./NavBar";
 import CountriesList from "./CountriesList";
 import MainContent from "./MainContent";
 
@@ -14,14 +13,10 @@ const GridLayout = () => {
   return (
     <Box
       display={"grid"}
-      gridTemplateAreas={{ xs: `"nav" "main"`, md: `"nav nav"  "aside main"` }}
+      gridTemplateAreas={{ xs: `"main"`, md: `"aside main"` }}
       gridTemplateColumns={{ sm: "1fr", md: "125px 1fr" }}
       gap={1}
     >
-      <Box gridArea={"nav"}>
-        <NavBar />
-      </Box>
-
       <Box gridArea={"aside"} sx={{ display: { xs: "none", md: "block" } }}>
         <Item>
           <CountriesList />

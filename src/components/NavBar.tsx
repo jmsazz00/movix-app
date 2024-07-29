@@ -3,15 +3,21 @@ import whiteLogo from "../assets/movix-white.png";
 import darkLogo from "../assets/movix-black.png";
 import ModeSwitcher from "./ModeSwitcher";
 import { useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const theme = useTheme();
 
+  const navigate = useNavigate();
+
   return (
-    <Box>
+    <Box mb={1}>
       <AppBar position="static">
         <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
           <Box
+            onClick={() => {
+              navigate("/");
+            }}
             sx={{
               mx: 2,
               display: "flex",
