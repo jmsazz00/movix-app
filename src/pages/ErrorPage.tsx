@@ -6,10 +6,10 @@ const ErrorPage = () => {
 
   return (
     <Box padding={3}>
-      <Typography component={"h1"} fontSize={30}>
+      <Typography fontWeight={"bold"} component={"h1"} fontSize={30}>
         Oops :/
       </Typography>
-      <Alert severity="error" sx={{ mx: 0, my: 2 }}>
+      <Alert severity="error" sx={{ mx: 0, my: 1.5 }}>
         {isRouteErrorResponse(error)
           ? "This page doesn't exist"
           : "There was an unexpected  error"}

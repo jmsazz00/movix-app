@@ -1,4 +1,5 @@
 import { Alert, Button, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   idTeam: string;
@@ -7,6 +8,8 @@ interface Props {
 }
 
 const TeamShortDesc = ({ idTeam, desc, limit }: Props) => {
+  const navigate = useNavigate();
+
   if (!desc)
     return (
       <Alert severity="error" sx={{ mt: 2 }}>
@@ -24,7 +27,12 @@ const TeamShortDesc = ({ idTeam, desc, limit }: Props) => {
       textAlign={"justify"}
     >
       {!isLongDesc ? desc : desc.slice(0, limit) + "..."}
-      <Button size="small" onClick={() => {}}>
+      <Button
+        size="small"
+        onClick={() => {
+          navigate(`/team/${idTeam}`);
+        }}
+      >
         Learn More
       </Button>
     </Typography>
