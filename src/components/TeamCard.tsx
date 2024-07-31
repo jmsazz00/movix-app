@@ -78,7 +78,7 @@ const TeamCard = ({ teamData }: Props) => {
           </Box>
           <Divider sx={{ width: "200px", m: "5px auto" }} />
           <TeamShortDesc
-            idTeam={idTeam}
+            teamName={strTeam}
             desc={strDescriptionEN}
             limit={descriptionLimit}
           />

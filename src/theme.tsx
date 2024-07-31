@@ -15,11 +15,19 @@ interface Props {
 }
 
 const ColorModeProvider = ({ children }: Props) => {
-  const [mode, setMode] = useState<"light" | "dark">("dark");
+  const [mode, setMode] = useState<"light" | "dark">(() => {
+    const savedMode = localStorage.getItem("themeMode");
+    return savedMode ? (savedMode as "light" | "dark") : "dark";
+  });
+
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+        setMode((prevMode) => {
+          const newMode = prevMode === "light" ? "dark" : "light";
+          localStorage.setItem("themeMode", newMode);
+          return newMode;
+        });
       },
     }),
     []

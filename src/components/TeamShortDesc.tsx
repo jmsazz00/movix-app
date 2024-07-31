@@ -2,12 +2,12 @@ import { Alert, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
-  idTeam: string;
+  teamName: string;
   desc: string;
   limit: number;
 }
 
-const TeamShortDesc = ({ idTeam, desc, limit }: Props) => {
+const TeamShortDesc = ({ teamName, desc, limit }: Props) => {
   const navigate = useNavigate();
 
   if (!desc)
@@ -30,7 +30,7 @@ const TeamShortDesc = ({ idTeam, desc, limit }: Props) => {
       <Button
         size="small"
         onClick={() => {
-          navigate(`/team/${idTeam}`);
+          navigate(`/team/${teamName}`);
         }}
       >
         Learn More
