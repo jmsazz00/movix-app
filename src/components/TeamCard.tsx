@@ -63,10 +63,10 @@ const TeamCard = ({ teamData }: Props) => {
             <strong>Country:</strong> {strCountry}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            <strong>League:</strong> {strLeague || "none"}
+            <strong>League:</strong> {strLeague || "N/A"}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            <strong>Stadium:</strong> {strStadium || "none"}
+            <strong>Stadium:</strong> {strStadium || "N/A"}
           </Typography>
           <Box>
             <Rating

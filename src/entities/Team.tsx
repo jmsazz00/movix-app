@@ -7,6 +7,8 @@ export default interface Team {
   strLeague: string;
   strStadium: string;
   strDescriptionEN: string;
+  strDescriptionES: string;
+  strDescriptionFR: string;
   strWebsite: string;
   strFacebook: string;
   strTwitter: string;

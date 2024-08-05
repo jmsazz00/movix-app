@@ -5,7 +5,7 @@ const ErrorPage = () => {
   const error = useRouteError();
 
   return (
-    <Box padding={3}>
+    <Box p={4}>
       <Typography fontWeight={"bold"} component={"h1"} fontSize={30}>
         Oops :/
       </Typography>
