@@ -10,6 +10,8 @@ import {
   Grid,
   IconButton,
   InputLabel,
+  List,
+  ListItem,
   MenuItem,
   Select,
   SelectChangeEvent,
@@ -55,6 +57,11 @@ const TeamDetailPage = () => {
   const handleLanguageChange = (event: SelectChangeEvent) => {
     setLanguage(event.target.value as LnOpts);
   };
+
+  const leagues = Array.from(
+    { length: 2 },
+    (_, t) => `strLeague${t === 0 ? "" : t + 1}`
+  );
 
   return isLoading ? (
     <CircularProgress sx={{ m: 4 }} />
@@ -131,11 +138,22 @@ const TeamDetailPage = () => {
                   color="textSecondary"
                   fontWeight="bold"
                 >
-                  League
+                  League(s)
                 </Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  {team.strLeague || "N/A"}
-                </Typography>
+                {leagues.map((l) => {
+                  const league = (team as any)[l];
+                  return (
+                    league && (
+                      <Typography variant="body1" fontWeight="bold">
+                        {league === "_No League Soccer" ? (
+                          "N/A"
+                        ) : (
+                          <>&#8226; {league}</>
+                        )}
+                      </Typography>
+                    )
+                  );
+                })}
               </Grid>
               <Grid item xs={6} sx={{ p: 2 }}>
                 <Typography

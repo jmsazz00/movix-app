@@ -5,6 +5,7 @@ export default interface Team {
   strTeamShort: string;
   strSport: string;
   strLeague: string;
+  strLeague2: string;
   strStadium: string;
   strDescriptionEN: string;
   strDescriptionES: string;
