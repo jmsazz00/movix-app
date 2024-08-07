@@ -10,8 +10,6 @@ import {
   Grid,
   IconButton,
   InputLabel,
-  List,
-  ListItem,
   MenuItem,
   Select,
   SelectChangeEvent,
@@ -172,7 +170,7 @@ const TeamDetailPage = () => {
           <Box mt={2}>
             <IconButton
               color="primary"
-              href={team.strFacebook}
+              href={"https://" + team.strFacebook}
               target="_blank"
               aria-label="Facebook"
             >
@@ -180,7 +178,7 @@ const TeamDetailPage = () => {
             </IconButton>
             <IconButton
               color="primary"
-              href={team.strTwitter}
+              href={"https://" + team.strTwitter}
               target="_blank"
               aria-label="Twitter"
             >
@@ -188,7 +186,7 @@ const TeamDetailPage = () => {
             </IconButton>
             <IconButton
               color="primary"
-              href={team.strInstagram}
+              href={"https://" + team.strInstagram}
               target="_blank"
               aria-label="Instagram"
             >
