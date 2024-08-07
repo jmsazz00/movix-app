@@ -1,23 +1,19 @@
-import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 import {
   Alert,
   Box,
-  Button,
   CircularProgress,
-  Collapse,
   Divider,
-  FormControl,
   Grid,
-  IconButton,
-  InputLabel,
-  MenuItem,
-  Select,
   SelectChangeEvent,
-  Typography,
-  useTheme,
 } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+import LanguageSelector from "../components/LanguageSelector";
+import TeamBadge from "../components/TeamBadge";
+import TeamDescription from "../components/TeamDescription";
+import TeamDetails from "../components/TeamDetails";
+import TeamSocialMedia from "../components/TeamSocialMedia";
+import LnOpts from "../entities/LanguageType";
 import useTeam from "../hooks/useTeam";
 
 const TeamDetailPage = () => {
@@ -30,43 +26,19 @@ const TeamDetailPage = () => {
   if (error)
     return <Alert severity="error">An unexpected error occured.</Alert>;
 
-  type LnOpts = "EN" | "FR" | "ES";
-
-  const [expanded, setExpanded] = useState(false);
-  const [language, setLanguage] = useState<LnOpts>("EN");
-  const [isContentLong, setIsContentLong] = useState(false);
-
-  const contentRef = useRef<HTMLDivElement>(null);
-  const theme = useTheme();
-
   const team = teams?.teams[0]!;
-  const DESC_LIMIT = 100;
 
-  useEffect(() => {
-    if (contentRef.current) {
-      setIsContentLong(contentRef.current.scrollHeight > DESC_LIMIT); // Compare with collapsedSize (e.g., 100px)
-    }
-  }, [team, language, expanded]);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const [language, setLanguage] = useState<LnOpts>("EN");
 
   const handleLanguageChange = (event: SelectChangeEvent) => {
     setLanguage(event.target.value as LnOpts);
   };
-
-  const leagues = Array.from(
-    { length: 2 },
-    (_, t) => `strLeague${t === 0 ? "" : t + 1}`
-  );
 
   return isLoading ? (
     <CircularProgress sx={{ m: 4 }} />
   ) : (
     <Box p={4}>
       <Grid container spacing={3}>
-        {/* Left Side: Badge and Main Details */}
         <Grid
           item
           xs={12}
@@ -78,172 +50,27 @@ const TeamDetailPage = () => {
             alignItems: "center",
           }}
         >
-          <Box>
-            <img
-              src={team.strBadge + "/small"}
-              alt={`${team.strTeam} badge`}
-              style={{ width: "200px", borderRadius: 8 }}
-            />
-          </Box>
-          <Box my={4}>
-            <Grid container spacing={0} sx={{ textAlign: "center" }}>
-              <Grid
-                item
-                xs={6}
-                sx={{
-                  borderRight: `1px solid ${theme.palette.divider}`,
-                  borderBottom: `1px solid ${theme.palette.divider}`,
-                  p: 2,
-                }}
-              >
-                <Typography
-                  variant="subtitle1"
-                  color="textSecondary"
-                  fontWeight="bold"
-                >
-                  Country
-                </Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  {team.strCountry || "N/A"}
-                </Typography>
-              </Grid>
-              <Grid
-                item
-                xs={6}
-                sx={{
-                  borderBottom: `1px solid ${theme.palette.divider}`,
-                  p: 2,
-                }}
-              >
-                <Typography
-                  variant="subtitle1"
-                  color="textSecondary"
-                  fontWeight="bold"
-                >
-                  Sport
-                </Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  {team.strSport || "N/A"}
-                </Typography>
-              </Grid>
-              <Grid
-                item
-                xs={6}
-                sx={{ borderRight: `1px solid ${theme.palette.divider}`, p: 2 }}
-              >
-                <Typography
-                  variant="subtitle1"
-                  color="textSecondary"
-                  fontWeight="bold"
-                >
-                  League(s)
-                </Typography>
-                {leagues.map((l) => {
-                  const league = (team as any)[l];
-                  return (
-                    league && (
-                      <Typography variant="body1" fontWeight="bold">
-                        {league === "_No League Soccer" ? (
-                          "N/A"
-                        ) : (
-                          <>&#8226; {league}</>
-                        )}
-                      </Typography>
-                    )
-                  );
-                })}
-              </Grid>
-              <Grid item xs={6} sx={{ p: 2 }}>
-                <Typography
-                  variant="subtitle1"
-                  color="textSecondary"
-                  fontWeight="bold"
-                >
-                  Stadium
-                </Typography>
-                <Typography variant="body1" fontWeight="bold">
-                  {team.strStadium || "N/A"}
-                </Typography>
-              </Grid>
-            </Grid>
-          </Box>
-          <Box mt={2}>
-            <IconButton
-              color="primary"
-              href={"https://" + team.strFacebook}
-              target="_blank"
-              aria-label="Facebook"
-            >
-              <Facebook />
-            </IconButton>
-            <IconButton
-              color="primary"
-              href={"https://" + team.strTwitter}
-              target="_blank"
-              aria-label="Twitter"
-            >
-              <Twitter />
-            </IconButton>
-            <IconButton
-              color="primary"
-              href={"https://" + team.strInstagram}
-              target="_blank"
-              aria-label="Instagram"
-            >
-              <Instagram />
-            </IconButton>
-          </Box>
+          <TeamBadge badgeUrl={team.strBadge} teamName={team.strTeam} />
+          <TeamDetails
+            country={team.strCountry}
+            sport={team.strSport}
+            leagues={[team.strLeague, team.strLeague2].filter(Boolean)}
+            stadium={team.strStadium}
+          />
+          <TeamSocialMedia
+            facebook={team.strFacebook}
+            twitter={team.strTwitter}
+            instagram={team.strInstagram}
+          />
         </Grid>
 
-        {/* Vertical Divider */}
         <Grid item sx={{ display: "flex", justifyContent: "center" }}>
           <Divider orientation="vertical" flexItem sx={{ mr: 4 }} />
         </Grid>
 
-        {/* Right Side: Description and Language Selector */}
         <Grid item xs={12} sm={7} md={8}>
-          <Box>
-            <FormControl fullWidth>
-              <InputLabel>Language</InputLabel>
-              <Select
-                value={language}
-                onChange={handleLanguageChange}
-                label="Language"
-              >
-                <MenuItem value="EN">English</MenuItem>
-                <MenuItem value="ES">Spanish</MenuItem>
-                <MenuItem value="FR">French</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-          <Box mt={2}>
-            <Typography variant="h6" color={"textSecondary"}>
-              Overview
-            </Typography>
-            <Collapse
-              in={expanded}
-              collapsedSize={DESC_LIMIT}
-              timeout="auto"
-              sx={{ my: 0.5 }}
-            >
-              <Box ref={contentRef}>
-                <Typography
-                  variant="body1"
-                  component={"div"}
-                  textAlign={"justify"}
-                >
-                  {team[`strDescription${language}`] || (
-                    <Alert severity="error">No description is available.</Alert>
-                  )}
-                </Typography>
-              </Box>
-            </Collapse>
-            {isContentLong && (
-              <Button variant="outlined" onClick={handleExpandClick}>
-                {expanded ? "Show Less" : "Show More"}
-              </Button>
-            )}
-          </Box>
+          <LanguageSelector value={language} onChange={handleLanguageChange} />
+          <TeamDescription description={team[`strDescription${language}`]} />
         </Grid>
       </Grid>
     </Box>

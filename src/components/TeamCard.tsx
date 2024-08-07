@@ -26,7 +26,6 @@ const TeamCard = ({ teamData }: Props) => {
     strTeam,
     strCountry,
     strLeague,
-    strStadium,
     strDescriptionEN,
   } = teamData;
 
@@ -59,14 +58,14 @@ const TeamCard = ({ teamData }: Props) => {
           <Typography variant="h5" gutterBottom>
             {strTeam}
           </Typography>
-          <Typography variant="body2" color="text.secondary" paragraph>
+          <Typography variant="body2" color="text.secondary">
             <strong>Country:</strong> {strCountry}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            <strong>League:</strong> {strLeague || "N/A"}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            <strong>Stadium:</strong> {strStadium || "N/A"}
+            <strong>League:</strong>{" "}
+            {!strLeague || strLeague.startsWith("_No League")
+              ? "N/A"
+              : strLeague}
           </Typography>
           <Box>
             <Rating

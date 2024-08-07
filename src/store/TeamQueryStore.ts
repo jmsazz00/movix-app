@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import SortOption from "../entities/SortOption";
+import SortOption from "../entities/SortType";
 
 interface TeamQuery {
   countryName?: string;
