@@ -10,17 +10,32 @@ export const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const GridLayout = () => {
+  const navHeight = 96;
+
   return (
     <Box
       display={"grid"}
       gridTemplateAreas={{ xs: `"main"`, md: `"aside main"` }}
       gridTemplateColumns={{ sm: "1fr", md: "125px 1fr" }}
+      gridTemplateRows={{ xs: "1fr", md: "1fr" }}
       gap={1}
     >
-      <Box gridArea={"aside"} sx={{ display: { xs: "none", md: "block" } }}>
-        <Item>
-          <CountriesList />
-        </Item>
+      <Box
+        gridArea={"aside"}
+        sx={{ display: { xs: "none", md: "block" }, position: "relative" }}
+      >
+        <Box
+          sx={{
+            height: `calc(100vh - ${navHeight}px)`,
+            position: "sticky",
+            top: navHeight,
+            overflowY: "auto",
+          }}
+        >
+          <Item>
+            <CountriesList />
+          </Item>
+        </Box>
       </Box>
 
       <Box gridArea={"main"}>

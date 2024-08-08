@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline, createTheme } from "@mui/material";
 import { ReactNode, createContext, useMemo, useState } from "react";
+import GlobalStyles from "./GlobalStyles";
 
 interface ColorModeType {
   toggleColorMode: () => void;
@@ -48,6 +49,7 @@ const ColorModeProvider = ({ children }: Props) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         {children}
+        <GlobalStyles />
       </ThemeProvider>
     </ColorModeContext.Provider>
   );
