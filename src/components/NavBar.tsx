@@ -43,7 +43,10 @@ const NavBar = () => {
       }}
     >
       <AppBar position="static">
-        <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
+        <Toolbar
+          disableGutters
+          sx={{ justifyContent: "space-between", height: "70px" }}
+        >
           <Box
             onClick={() => navigate("/")}
             sx={{

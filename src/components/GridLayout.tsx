@@ -10,7 +10,7 @@ export const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const GridLayout = () => {
-  const navHeight = 96;
+  const navHeight = 78;
 
   return (
     <Box
