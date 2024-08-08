@@ -20,7 +20,7 @@ const HighlightedTeams = () => {
         ))}
       </Grid>
       {teamsLimit >= highlightedTeams.length ? null : (
-        <Box display={"flex"} justifyContent={"flex-end"} m={2}>
+        <Box display={"flex"} justifyContent={"center"} m={2}>
           <Button
             variant="outlined"
             onClick={() => setTeamsLimit(teamsLimit + INITIAL_TEAMS_LIMIT)}
