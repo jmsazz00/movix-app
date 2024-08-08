@@ -13,7 +13,7 @@ const MainHeading = ({ title, Icon }: Props) => {
   };
 
   return (
-    <Box marginBottom={2}>
+    <Box marginBottom={3}>
       <Box
         display="flex"
         alignItems="center"

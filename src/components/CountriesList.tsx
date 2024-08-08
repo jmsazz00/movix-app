@@ -23,6 +23,7 @@ const CountriesList = () => {
   const handleSelectCountry = useCallback(
     (fullName: string) => {
       onSelectCountry(fullName);
+      window.scroll({ top: 0, behavior: "smooth" });
     },
     [onSelectCountry]
   );
