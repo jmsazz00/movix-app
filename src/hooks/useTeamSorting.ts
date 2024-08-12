@@ -1,7 +1,7 @@
 import Team from "../entities/Team";
 import SortOption from "../entities/SortType";
 
-export const useTeamSorting = (sortBy: SortOption, teams: Team[]) => {
+const useTeamSorting = (sortBy: SortOption, teams: Team[]) => {
   if (!teams) return [];
 
   const sortedTeams = [...teams];
@@ -22,3 +22,5 @@ export const useTeamSorting = (sortBy: SortOption, teams: Team[]) => {
 
   return sortedTeams;
 };
+
+export default useTeamSorting;

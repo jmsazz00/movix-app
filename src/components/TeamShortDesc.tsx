@@ -30,7 +30,7 @@ const TeamShortDesc = ({ teamName, desc, limit }: Props) => {
       <Button
         size="small"
         onClick={() => {
-          navigate(`/team/${teamName}`);
+          navigate(`/t/${teamName}`);
         }}
       >
         Learn More

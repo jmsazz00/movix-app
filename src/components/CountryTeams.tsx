@@ -4,7 +4,7 @@ import TeamCard from "./TeamCard";
 import TeamCardSkeleton from "./TeamCardSkeleton";
 import CustomGridItem from "./CustomGridItem";
 import SortingOptions from "./SortingOptions";
-import { useTeamSorting } from "../hooks/useTeamSorting";
+import useTeamSorting from "../hooks/useTeamSorting";
 import useTeamQueryStore from "../store/TeamQueryStore";
 
 const CountryTeams = () => {
