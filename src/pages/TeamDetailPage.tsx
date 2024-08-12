@@ -20,23 +20,31 @@ const TeamDetailPage = () => {
   const { name } = useParams();
   const { data: teams, isLoading, error } = useTeam(name!);
 
-  if (!isLoading && (!teams || !teams.teams || teams.teams.length === 0))
-    return <Alert severity="error">Couldn't retrieve team.</Alert>;
-
-  if (error)
-    return <Alert severity="error">An unexpected error occured.</Alert>;
-
-  const team = teams?.teams[0]!;
-
   const [language, setLanguage] = useState<LnOpts>("EN");
 
   const handleLanguageChange = (event: SelectChangeEvent) => {
     setLanguage(event.target.value as LnOpts);
   };
 
-  return isLoading ? (
-    <CircularProgress sx={{ m: 4 }} />
-  ) : (
+  if (isLoading) return <CircularProgress sx={{ m: 4 }} />;
+
+  if (error)
+    return (
+      <Alert severity="error" sx={{ m: 3 }}>
+        An unexpected error occurred.
+      </Alert>
+    );
+
+  if (!teams || !teams.teams || teams.teams.length === 0)
+    return (
+      <Alert severity="error" sx={{ m: 3 }}>
+        Couldn't retrieve team: please check for typos.
+      </Alert>
+    );
+
+  const team = teams.teams[0];
+
+  return (
     <Box p={4}>
       <Grid container spacing={3}>
         <Grid

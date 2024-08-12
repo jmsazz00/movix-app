@@ -1,4 +1,4 @@
-import { Card, Skeleton, CardContent } from "@mui/material";
+import { Card, CardContent, Skeleton } from "@mui/material";
 
 const TeamCardSkeleton = () => {
   return (
@@ -18,7 +18,7 @@ const TeamCardSkeleton = () => {
           width="60%"
           style={{ marginBottom: 12 }}
         />
-        <Skeleton animation="wave" height={172} width="90%" />
+        <Skeleton animation="wave" height={137} width="90%" />
       </CardContent>
     </Card>
   );

@@ -1,12 +1,11 @@
+import StarBorderPurple500TwoToneIcon from "@mui/icons-material/StarBorderPurple500TwoTone";
 import { Box, Divider, Typography } from "@mui/material";
-import { ElementType } from "react";
 
 interface Props {
   title: string;
-  Icon: ElementType;
 }
 
-const MainHeading = ({ title, Icon }: Props) => {
+const MainHeading = ({ title }: Props) => {
   const styles = {
     fontSize: 64,
     color: "#ffc107",
@@ -22,7 +21,7 @@ const MainHeading = ({ title, Icon }: Props) => {
         padding={1}
         borderRadius={1}
       >
-        <Icon style={styles}></Icon>
+        <StarBorderPurple500TwoToneIcon style={styles} />
         <Typography
           variant="h3"
           style={{
@@ -35,7 +34,7 @@ const MainHeading = ({ title, Icon }: Props) => {
         >
           {title}
         </Typography>
-        <Icon style={styles}></Icon>
+        <StarBorderPurple500TwoToneIcon style={styles} />
       </Box>
       <Divider
         sx={{

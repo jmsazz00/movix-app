@@ -1,3 +1,4 @@
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import {
   Box,
   CircularProgress,
@@ -6,11 +7,10 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import useCountries from "../hooks/useCountries";
 import options from "../options/countries";
-import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import useTeamQueryStore from "../store/TeamQueryStore";
-import { useCallback } from "react";
 
 const CountriesList = () => {
   const { data: list, isLoading, error } = useCountries();
@@ -19,14 +19,13 @@ const CountriesList = () => {
   const onSelectCountry = useTeamQueryStore((t) => t.setCountryName);
 
   const theme = useTheme();
+  const navigate = useNavigate();
 
-  const handleSelectCountry = useCallback(
-    (fullName: string) => {
-      onSelectCountry(fullName);
-      window.scroll({ top: 0, behavior: "smooth" });
-    },
-    [onSelectCountry]
-  );
+  const handleSelectCountry = (fullName: string) => {
+    onSelectCountry(fullName);
+    navigate(`/c/${fullName}`);
+    window.scroll({ top: 0, behavior: "smooth" });
+  };
 
   if (isLoading)
     return (
@@ -34,7 +33,13 @@ const CountriesList = () => {
         <CircularProgress />
       </Box>
     );
-  if (error) return <ErrorOutlineIcon color="error" fontSize="large" />;
+
+  if (error)
+    return (
+      <Box textAlign={"center"}>
+        <ErrorOutlineIcon color="error" fontSize="large" />
+      </Box>
+    );
 
   const styles = {
     width: "30px",

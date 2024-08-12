@@ -1,19 +1,22 @@
 import { Alert, Box, Grid } from "@mui/material";
 import useTeams from "../hooks/useTeams";
-import TeamCard from "./TeamCard";
-import TeamCardSkeleton from "./TeamCardSkeleton";
-import CustomGridItem from "./CustomGridItem";
-import SortingOptions from "./SortingOptions";
 import useTeamSorting from "../hooks/useTeamSorting";
 import useTeamQueryStore from "../store/TeamQueryStore";
+import CustomGridItem from "./CustomGridItem";
+import SortingOptions from "./SortingOptions";
+import TeamCard from "./TeamCard";
+import TeamCardSkeleton from "./TeamCardSkeleton";
 
-const CountryTeams = () => {
-  const countryName = useTeamQueryStore((t) => t.teamQuery.countryName);
+interface Props {
+  selectedCountry: string;
+}
+
+const CountryTeams = ({ selectedCountry }: Props) => {
   const sortBy = useTeamQueryStore((t) => t.teamQuery.sortBy);
   const setSortBy = useTeamQueryStore((t) => t.setSortBy);
 
-  const { data: teams, isLoading, error } = useTeams(countryName!);
-  const skeletonCount = [1, 2, 3, 4, 5, 6];
+  const { data: teams, isLoading, error } = useTeams(selectedCountry);
+  const skeletonCount = Array.from({ length: 25 }, (v, k) => k + 1);
 
   if (error) return <Alert severity="error">An unexpected error occured</Alert>;
 
