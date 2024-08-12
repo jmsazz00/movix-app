@@ -1,14 +1,23 @@
 import { Box, Button, Grid } from "@mui/material";
 import HighlightedTeam from "./HighlightedTeam";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import highlightedTeams from "../options/highlightedTeam";
 import CustomGridItem from "./CustomGridItem";
 
 const HighlightedTeams = () => {
   const INITIAL_TEAMS_LIMIT = 6;
-  const [teamsLimit, setTeamsLimit] = useState(INITIAL_TEAMS_LIMIT);
+
+  const storedTeamsLimit = localStorage.getItem("teamsLimit");
+  const initialLimit = storedTeamsLimit
+    ? parseInt(storedTeamsLimit, 10)
+    : INITIAL_TEAMS_LIMIT;
+  const [teamsLimit, setTeamsLimit] = useState(initialLimit);
 
   const teamsToShow = highlightedTeams.slice(0, teamsLimit);
+
+  useEffect(() => {
+    localStorage.setItem("teamsLimit", teamsLimit.toString());
+  }, [teamsLimit]);
 
   return (
     <Box>
