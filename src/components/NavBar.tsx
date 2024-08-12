@@ -15,8 +15,10 @@ const NavBar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const navHeight = 78;
 
-      if (currentScrollY > lastScrollY) setIsHidden(true);
+      if (currentScrollY > navHeight && currentScrollY > lastScrollY)
+        setIsHidden(true);
       else setIsHidden(false);
 
       setLastScrollY(currentScrollY);

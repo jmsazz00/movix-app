@@ -14,20 +14,20 @@ const GlobalStyles = () => {
         ::-webkit-scrollbar-track {
           background-color: ${theme.palette.mode === "dark"
             ? "#2a2a2a"
-            : "#f0f0f0"};
+            : "#eaf4ff"};
           border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb {
           background-color: ${theme.palette.mode === "dark"
             ? "#444"
-            : "#cfe0f4"};
+            : "#b3cde0"};
           border-radius: 10px;
           transition: background-color 0.3s, width 0.3s;
         }
         ::-webkit-scrollbar-thumb:hover {
           background-color: ${theme.palette.mode === "dark"
             ? "#666"
-            : "#a2b9e4"};
+            : "#9ab4c9"};
         }
       `}
     />
