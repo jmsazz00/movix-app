@@ -16,13 +16,11 @@ const CountriesList = () => {
   const { data: list, isLoading, error } = useCountries();
 
   const selectedCountry = useTeamQueryStore((t) => t.teamQuery.countryName);
-  const onSelectCountry = useTeamQueryStore((t) => t.setCountryName);
 
   const theme = useTheme();
   const navigate = useNavigate();
 
   const handleSelectCountry = (fullName: string) => {
-    onSelectCountry(fullName);
     navigate(`/c/${fullName}`);
     window.scroll({ top: 0, behavior: "smooth" });
   };

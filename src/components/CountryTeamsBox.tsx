@@ -3,9 +3,16 @@ import { useParams } from "react-router-dom";
 import countries from "../options/countries";
 import CountryTeams from "./CountryTeams";
 import MainHeading from "./MainHeading";
+import { useEffect } from "react";
+import useTeamQueryStore from "../store/TeamQueryStore";
 
 const CountryTeamsBox = () => {
   const { country } = useParams();
+  const onSelectCountry = useTeamQueryStore((t) => t.setCountryName);
+
+  useEffect(() => {
+    onSelectCountry(country);
+  }, [country]);
 
   const isValidCountry = countries.some(
     (option) => option.fullName === country
