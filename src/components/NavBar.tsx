@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import darkLogo from "../assets/movix-black.png";
 import whiteLogo from "../assets/movix-white.png";
 import ModeSwitcher from "./ModeSwitcher";
+import "../css/NavBar.css";
 
 const NavBar = () => {
   const theme = useTheme();
@@ -11,8 +12,14 @@ const NavBar = () => {
 
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const [isHidden, setIsHidden] = useState<boolean>(false);
+  const [initialLoad, setInitialLoad] = useState<boolean>(true);
 
   useEffect(() => {
+    // Delay setting initialLoad to false to avoid flicker
+    const timer = setTimeout(() => {
+      setInitialLoad(false);
+    }, 50);
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const navHeight = 78;
@@ -28,21 +35,19 @@ const NavBar = () => {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timer);
     };
   }, [lastScrollY]);
 
   return (
     <Box
-      sx={{
-        mb: 1,
-        position: "sticky",
-        top: 0,
-        width: "100%",
-        transition: "transform 0.2s ease-in-out, opacity 0.2s ease-in-out",
-        transform: isHidden ? "translateY(-100%)" : "translateY(0)",
-        opacity: isHidden ? 0 : 1,
-        zIndex: 1100,
-      }}
+      className={`navbar ${
+        initialLoad
+          ? "navbar-initial"
+          : isHidden
+          ? "navbar-hidden"
+          : "navbar-visible"
+      }`}
     >
       <AppBar position="static">
         <Toolbar
@@ -50,7 +55,10 @@ const NavBar = () => {
           sx={{ justifyContent: "space-between", height: "70px" }}
         >
           <Box
-            onClick={() => navigate("/")}
+            onClick={() => {
+              navigate("/");
+              window.scroll({ top: 0 });
+            }}
             sx={{
               mx: 2,
               display: "flex",

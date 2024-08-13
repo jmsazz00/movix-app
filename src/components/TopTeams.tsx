@@ -8,7 +8,6 @@ const TopTeams = () => {
 
   useEffect(() => {
     onSelectCountry("");
-    window.scroll({ top: 0 });
   }, []);
 
   return (

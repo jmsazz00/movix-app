@@ -1,0 +1,23 @@
+.navbar {
+  margin-bottom: 8px;
+  opacity: 1;
+  position: sticky;
+  top: 0;
+  transform: translateY(0);
+  transition: opacity 0.2s ease, transform 0.25s ease;
+  z-index: 1999;
+}
+
+.navbar-initial {
+  opacity: 0;
+}
+
+.navbar-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar-hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+}
