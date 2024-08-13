@@ -12,10 +12,10 @@ class ApiClient<T> {
     this.endpoint = endpoint;
   }
 
-  getAll = (params?: AxiosRequestConfig) => {
-    return this.apiClient
-      .get<T>(this.endpoint, { ...params })
-      .then((res) => res.data);
+  getAll = async (params?: AxiosRequestConfig) => {
+    const res = await this.apiClient
+      .get<T>(this.endpoint, { ...params });
+    return res.data;
   };
 }
 
