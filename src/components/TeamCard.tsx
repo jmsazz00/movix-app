@@ -9,7 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 import calculateRating from "../options/calculateRating";
-import Team from "../entities/Team";
+import { Team } from "../entities/Team";
 import TeamShortDesc from "./TeamShortDesc";
 
 interface Props {

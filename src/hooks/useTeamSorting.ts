@@ -1,4 +1,4 @@
-import Team from "../entities/Team";
+import { Team } from "../entities/Team";
 import SortOption from "../entities/SortType";
 
 const useTeamSorting = (sortBy: SortOption, teams: Team[]) => {

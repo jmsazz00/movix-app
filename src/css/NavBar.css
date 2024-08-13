@@ -4,7 +4,7 @@
   position: sticky;
   top: 0;
   transform: translateY(0);
-  transition: opacity 0.2s ease, transform 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
   z-index: 1999;
 }
 

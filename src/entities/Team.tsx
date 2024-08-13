@@ -1,4 +1,4 @@
-export default interface Team {
+export interface Team {
   idTeam: string;
   intLoved: number;
   strTeam: string;
@@ -16,4 +16,8 @@ export default interface Team {
   strInstagram: string;
   strBadge: string;
   strCountry: string;
+}
+
+export interface TeamList {
+  teams: Team[];
 }

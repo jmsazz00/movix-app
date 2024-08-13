@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Box, Button, Collapse, Typography, Alert } from "@mui/material";
+import { Alert, Box, Button, Collapse, Typography } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
 
-interface TeamDescriptionProps {
+interface Props {
   description: string;
 }
 
-const TeamDescription: React.FC<TeamDescriptionProps> = ({ description }) => {
+const TeamDescription = ({ description }: Props) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   const [expanded, setExpanded] = useState(false);
@@ -24,8 +24,8 @@ const TeamDescription: React.FC<TeamDescriptionProps> = ({ description }) => {
   };
 
   return (
-    <Box mt={2}>
-      <Typography variant="h6" color={"textSecondary"}>
+    <Box my={2}>
+      <Typography variant="h6" color={"textSecondary"} fontWeight={"bold"}>
         Overview
       </Typography>
       <Collapse

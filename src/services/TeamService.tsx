@@ -1,10 +1,11 @@
 import ApiClient from "./ApiClient";
-import Team from "../entities/Team";
+import { TeamList } from "../entities/Team";
 
-class TeamService extends ApiClient<Team[]> {
-  getTeam = async (id?: number | string) => {
-    const res = await this.apiClient
-      .get<Team[]>(this.endpoint, { params: { t: id } });
+class TeamService extends ApiClient<TeamList> {
+  getTeam = async (id: string) => {
+    const res = await this.apiClient.get<TeamList>(this.endpoint, {
+      params: { t: id },
+    });
     return res.data;
   };
 }

@@ -15,6 +15,7 @@ import TeamDetails from "../components/TeamDetails";
 import TeamSocialMedia from "../components/TeamSocialMedia";
 import LnOpts from "../entities/LanguageType";
 import useTeam from "../hooks/useTeam";
+import TeamLastGames from "../components/TeamLastGames";
 
 const TeamDetailPage = () => {
   const { name } = useParams();
@@ -79,6 +80,7 @@ const TeamDetailPage = () => {
         <Grid item xs={12} sm={7} md={8}>
           <LanguageSelector value={language} onChange={handleLanguageChange} />
           <TeamDescription description={team[`strDescription${language}`]} />
+          <TeamLastGames teamId={team.idTeam} />
         </Grid>
       </Grid>
     </Box>

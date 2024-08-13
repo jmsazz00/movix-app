@@ -1,10 +1,10 @@
 import { useQuery } from "react-query";
-import allTeamsService from "../services/AllTeamsService";
+import teamsService from "../services/TeamsService";
 
 const useTeams = (country: string) => {
   return useQuery({
     queryKey: ["teams", country],
-    queryFn: () => allTeamsService.getTeams(country),
+    queryFn: () => teamsService.getTeams(country),
   });
 };
 
