@@ -103,10 +103,12 @@ const TeamLastGames = ({ teamId }: Props) => {
                 {/* Home Team Badge */}
                 <Avatar
                   alt={game.strHomeTeam}
-                  src={game.strHomeTeamBadge.concat("/tiny")}
+                  src={game.strHomeTeamBadge?.concat("/tiny")}
                   variant="square"
                   sx={{ mx: 1 }}
-                />
+                >
+                  {!game.strHomeTeamBadge && game.strHomeTeam.charAt(0)}
+                </Avatar>
 
                 {/* Scores */}
                 <Typography
@@ -133,10 +135,12 @@ const TeamLastGames = ({ teamId }: Props) => {
                 {/* Away Team Badge */}
                 <Avatar
                   alt={game.strAwayTeam}
-                  src={game.strAwayTeamBadge.concat("/tiny")}
+                  src={game.strAwayTeamBadge?.concat("/tiny")}
                   variant="square"
                   sx={{ mx: 1 }}
-                />
+                >
+                  {!game.strAwayTeamBadge && game.strAwayTeam.charAt(0)}
+                </Avatar>
               </Box>
             </ListItem>
           );

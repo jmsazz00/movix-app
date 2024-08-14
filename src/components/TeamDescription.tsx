@@ -30,7 +30,7 @@ const TeamDescription = ({ description }: Props) => {
       </Typography>
       <Collapse
         in={expanded}
-        collapsedSize={100}
+        collapsedSize={75}
         timeout="auto"
         sx={{ mt: 0.5 }}
       >

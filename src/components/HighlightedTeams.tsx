@@ -20,7 +20,7 @@ const HighlightedTeams = () => {
   }, [teamsLimit]);
 
   return (
-    <Box>
+    <Box mt={3}>
       <Grid container spacing={3}>
         {teamsToShow.map((team) => (
           <CustomGridItem key={team}>
