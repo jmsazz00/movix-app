@@ -18,7 +18,7 @@ const TeamCardSkeleton = () => {
           width="60%"
           style={{ marginBottom: 12 }}
         />
-        <Skeleton animation="wave" height={137} width="90%" />
+        <Skeleton animation="wave" height={135} width="90%" />
       </CardContent>
     </Card>
   );

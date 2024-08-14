@@ -1,5 +1,6 @@
 import { Alert, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 interface Props {
   teamName: string;
@@ -9,6 +10,7 @@ interface Props {
 
 const TeamShortDesc = ({ teamName, desc, limit }: Props) => {
   const navigate = useNavigate();
+  const scrollToTop = useScrollToTop(false);
 
   if (!desc)
     return (
@@ -31,6 +33,7 @@ const TeamShortDesc = ({ teamName, desc, limit }: Props) => {
         size="small"
         onClick={() => {
           navigate(`/t/${teamName}`);
+          scrollToTop();
         }}
       >
         Learn More

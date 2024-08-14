@@ -5,10 +5,12 @@ import darkLogo from "../assets/movix-black.png";
 import whiteLogo from "../assets/movix-white.png";
 import ModeSwitcher from "./ModeSwitcher";
 import "../css/NavBar.css";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 const NavBar = () => {
   const theme = useTheme();
   const navigate = useNavigate();
+  const scrollToTop = useScrollToTop(false);
 
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const [isHidden, setIsHidden] = useState<boolean>(false);
@@ -57,7 +59,7 @@ const NavBar = () => {
           <Box
             onClick={() => {
               navigate("/");
-              window.scroll({ top: 0 });
+              scrollToTop();
             }}
             sx={{
               mx: 2,

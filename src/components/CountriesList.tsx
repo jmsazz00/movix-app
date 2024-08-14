@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import useCountries from "../hooks/useCountries";
 import options from "../options/countries";
 import useTeamQueryStore from "../store/TeamQueryStore";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 const CountriesList = () => {
   const { data: list, isLoading, error } = useCountries();
@@ -19,10 +20,11 @@ const CountriesList = () => {
 
   const theme = useTheme();
   const navigate = useNavigate();
+  const scrollToTop = useScrollToTop(true);
 
   const handleSelectCountry = (fullName: string) => {
     navigate(`/c/${fullName}`);
-    window.scroll({ top: 0, behavior: "smooth" });
+    scrollToTop();
   };
 
   if (isLoading)

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Fab, Tooltip } from "@mui/material";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { styled } from "@mui/material/styles";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 const StyledFab = styled(Fab)(({ theme }) => ({
   position: "fixed",
@@ -20,6 +21,8 @@ const StyledFab = styled(Fab)(({ theme }) => ({
 const GoUpButton: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
+  const scrollToTop = useScrollToTop(true);
+
   useEffect(() => {
     const handleScroll = () => {
       setVisible(window.scrollY > 500);
@@ -30,10 +33,7 @@ const GoUpButton: React.FC = () => {
   }, []);
 
   const handleClick = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    scrollToTop();
   };
 
   return (
