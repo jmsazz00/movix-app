@@ -24,7 +24,7 @@ const TeamDescription = ({ description }: Props) => {
   };
 
   return (
-    <Box my={2}>
+    <Box mt={2} mb={4}>
       <Typography variant="h6" color={"textSecondary"} fontWeight={"bold"}>
         Overview
       </Typography>
@@ -32,7 +32,7 @@ const TeamDescription = ({ description }: Props) => {
         in={expanded}
         collapsedSize={100}
         timeout="auto"
-        sx={{ my: 0.5 }}
+        sx={{ mt: 0.5 }}
       >
         <Box ref={contentRef}>
           <Typography variant="body1" component={"div"} textAlign={"justify"}>
@@ -43,7 +43,7 @@ const TeamDescription = ({ description }: Props) => {
         </Box>
       </Collapse>
       {isContentLong && (
-        <Button variant="outlined" onClick={handleExpandClick}>
+        <Button variant="outlined" size="small" onClick={handleExpandClick}>
           {expanded ? "Show Less" : "Show More"}
         </Button>
       )}

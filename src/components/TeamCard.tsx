@@ -8,8 +8,9 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import calculateRating from "../options/calculateRating";
 import { Team } from "../entities/Team";
+import calculateRating from "../options/calculateRating";
+import TeamBadge from "./TeamBadge";
 import TeamShortDesc from "./TeamShortDesc";
 
 interface Props {
@@ -47,17 +48,10 @@ const TeamCard = ({ teamData }: Props) => {
               : theme.palette.background.default,
         }}
       >
-        <CardMedia
-          component="img"
-          height="200"
-          image={strBadge + "/small"}
-          sx={{ objectFit: "contain", paddingTop: 2 }}
-          alt={strTeam}
-        />
-        <CardContent>
-          <Typography variant="h5" gutterBottom>
-            {strTeam}
-          </Typography>
+        <CardMedia sx={{ pt: 2 }}>
+          <TeamBadge badgeUrl={strBadge} teamName={strTeam} />
+        </CardMedia>
+        <CardContent sx={{ py: 1 }}>
           <Typography variant="body2" color="text.secondary">
             <strong>Country:</strong> {strCountry}
           </Typography>

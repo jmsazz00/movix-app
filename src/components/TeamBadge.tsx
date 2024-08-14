@@ -10,7 +10,10 @@ const TeamBadge = ({ badgeUrl, teamName }: TeamBadgeProps) => (
     <img
       src={badgeUrl + "/small"}
       alt={`${teamName} badge`}
-      style={{ width: "200px", borderRadius: 8 }}
+      style={{
+        objectFit: "contain",
+        height: 185,
+      }}
     />
     <Typography mt={1} fontWeight={"bold"} variant="h5" textAlign={"center"}>
       {teamName}
