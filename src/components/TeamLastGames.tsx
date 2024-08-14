@@ -119,7 +119,7 @@ const TeamLastGames = ({ teamId }: Props) => {
                     color: homeScoreColor,
                   }}
                 >
-                  {game.intHomeScore}
+                  {game.intHomeScore || "?"}
                 </Typography>
                 <Typography
                   sx={{
@@ -129,7 +129,7 @@ const TeamLastGames = ({ teamId }: Props) => {
                     color: awayScoreColor,
                   }}
                 >
-                  {game.intAwayScore}
+                  {game.intAwayScore || "?"}
                 </Typography>
 
                 {/* Away Team Badge */}
