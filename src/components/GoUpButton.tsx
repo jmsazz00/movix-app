@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Fab, Tooltip } from "@mui/material";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { Fab, Tooltip } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 import useScrollToTop from "../hooks/useScrollToTop";
 
 const StyledFab = styled(Fab)(({ theme }) => ({
@@ -18,9 +18,8 @@ const StyledFab = styled(Fab)(({ theme }) => ({
   },
 }));
 
-const GoUpButton: React.FC = () => {
+const GoUpButton = () => {
   const [visible, setVisible] = useState(false);
-
   const scrollToTop = useScrollToTop(true);
 
   useEffect(() => {
@@ -43,8 +42,8 @@ const GoUpButton: React.FC = () => {
         aria-label="go-up"
         onClick={handleClick}
         style={{
-          opacity: visible ? 1 : 0, // Smoothly fade in/out
-          visibility: visible ? "visible" : "hidden", // Fully hide/show
+          opacity: visible ? 1 : 0, 
+          visibility: visible ? "visible" : "hidden", 
         }}
       >
         <ArrowUpwardIcon />

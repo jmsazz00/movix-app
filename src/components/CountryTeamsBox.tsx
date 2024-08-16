@@ -1,10 +1,10 @@
 import { Alert } from "@mui/material";
+import { useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import countries from "../options/countries";
+import useTeamQueryStore from "../store/TeamQueryStore";
 import CountryTeams from "./CountryTeams";
 import MainHeading from "./MainHeading";
-import { useEffect } from "react";
-import useTeamQueryStore from "../store/TeamQueryStore";
 
 const CountryTeamsBox = () => {
   const { country } = useParams();
@@ -14,8 +14,9 @@ const CountryTeamsBox = () => {
     onSelectCountry(country);
   }, [country]);
 
-  const isValidCountry = countries.some(
-    (option) => option.fullName === country
+  const isValidCountry = useMemo(
+    () => countries.some((option) => option.fullName === country),
+    [country]
   );
 
   if (!isValidCountry)

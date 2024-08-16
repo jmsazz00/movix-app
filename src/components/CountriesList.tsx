@@ -12,6 +12,7 @@ import useCountries from "../hooks/useCountries";
 import options from "../options/countries";
 import useTeamQueryStore from "../store/TeamQueryStore";
 import useScrollToTop from "../hooks/useScrollToTop";
+import { useMemo } from "react";
 
 const CountriesList = () => {
   const { data: list, isLoading, error } = useCountries();
@@ -27,16 +28,29 @@ const CountriesList = () => {
     scrollToTop();
   };
 
+  const selectedCountries = useMemo(() => {
+    return list?.countries
+      ?.filter((c) => options.some((opt) => opt.fullName === c.name_en))
+      .map((country) => {
+        const option = options.find((opt) => opt.fullName === country.name_en);
+        return {
+          name_en: option?.code,
+          flag_32_url: country.flag_url_32,
+          fullName: country.name_en,
+        };
+      });
+  }, [list, options]);
+
   if (isLoading)
     return (
-      <Box textAlign={"center"}>
+      <Box textAlign="center">
         <CircularProgress />
       </Box>
     );
 
   if (error)
     return (
-      <Box textAlign={"center"}>
+      <Box textAlign="center">
         <ErrorOutlineIcon color="error" fontSize="large" />
       </Box>
     );
@@ -47,17 +61,6 @@ const CountriesList = () => {
     borderRadius: "12px",
     marginRight: "10px",
   };
-
-  const selectedCountries = list?.countries
-    ?.filter((c) => options.some((opt) => opt.fullName === c.name_en))
-    .map((country) => {
-      const option = options.find((opt) => opt.fullName === country.name_en);
-      return {
-        name_en: option?.code,
-        flag_32_url: country.flag_url_32,
-        fullName: country.name_en,
-      };
-    });
 
   return (
     <Stack spacing={1} divider={<Divider flexItem />}>

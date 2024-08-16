@@ -1,5 +1,5 @@
 import { Alert, Box, Button, Collapse, Typography } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface Props {
   description: string;
@@ -19,9 +19,9 @@ const TeamDescription = ({ description }: Props) => {
     }
   }, [description, expanded]);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const handleExpandClick = useCallback(() => {
+    setExpanded((prevExpanded) => !prevExpanded);
+  }, []);
 
   return (
     <Box mt={2} mb={4}>
@@ -43,7 +43,12 @@ const TeamDescription = ({ description }: Props) => {
         </Box>
       </Collapse>
       {isContentLong && (
-        <Button variant="outlined" size="small" onClick={handleExpandClick}>
+        <Button
+          variant="outlined"
+          size="small"
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+        >
           {expanded ? "Show Less" : "Show More"}
         </Button>
       )}

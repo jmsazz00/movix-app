@@ -1,4 +1,5 @@
 import { Alert, Box, Grid } from "@mui/material";
+import { useMemo } from "react";
 import useTeams from "../hooks/useTeams";
 import useTeamSorting from "../hooks/useTeamSorting";
 import useTeamQueryStore from "../store/TeamQueryStore";
@@ -23,7 +24,10 @@ const CountryTeams = ({ selectedCountry }: Props) => {
   if (!isLoading && (!teams || !teams.teams || teams.teams.length === 0))
     return <Alert severity="error">Couldn't retrieve teams.</Alert>;
 
-  const sortedTeams = useTeamSorting(sortBy, teams?.teams!);
+  const sortedTeams = useMemo(
+    () => useTeamSorting(sortBy, teams?.teams!),
+    [sortBy, teams?.teams!]
+  );
 
   return (
     <Box>
