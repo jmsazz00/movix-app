@@ -1,6 +1,7 @@
 import { Box, Paper, styled } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import CountriesList from "../components/CountriesList";
+import navHeight from "../utilities/navHeight";
 
 export const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fcfcfc",
@@ -12,8 +13,6 @@ export const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const HomePage = () => {
-  const navHeight = 78;
-
   return (
     <Box
       display={"grid"}

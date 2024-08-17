@@ -9,7 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { Team } from "../entities/Team";
-import calculateRating from "../options/calculateRating";
+import calculateRating from "../utilities/calculateRating";
 import TeamBadge from "./TeamBadge";
 import TeamShortDesc from "./TeamShortDesc";
 

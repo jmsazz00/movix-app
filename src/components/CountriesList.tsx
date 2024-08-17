@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import useCountries from "../hooks/useCountries";
-import options from "../options/countries";
+import options from "../utilities/countries";
 import useTeamQueryStore from "../store/TeamQueryStore";
 import useScrollToTop from "../hooks/useScrollToTop";
 import { useMemo } from "react";

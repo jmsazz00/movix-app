@@ -1,7 +1,7 @@
 import { Alert } from "@mui/material";
 import { useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
-import countries from "../options/countries";
+import countries from "../utilities/countries";
 import useTeamQueryStore from "../store/TeamQueryStore";
 import CountryTeams from "./CountryTeams";
 import MainHeading from "./MainHeading";

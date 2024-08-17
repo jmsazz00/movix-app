@@ -12,10 +12,11 @@ import LanguageSelector from "../components/LanguageSelector";
 import TeamBadge from "../components/TeamBadge";
 import TeamDescription from "../components/TeamDescription";
 import TeamDetails from "../components/TeamDetails";
+import TeamLastGames from "../components/TeamLastGames";
 import TeamSocialMedia from "../components/TeamSocialMedia";
 import LnOpts from "../entities/LanguageType";
 import useTeam from "../hooks/useTeam";
-import TeamLastGames from "../components/TeamLastGames";
+import navHeight from "../utilities/navHeight";
 
 const TeamDetailPage = () => {
   const { name } = useParams();
@@ -48,29 +49,29 @@ const TeamDetailPage = () => {
   return (
     <Box p={4}>
       <Grid container spacing={3}>
-        <Grid
-          item
-          xs={12}
-          sm={4}
-          md={3}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <TeamBadge badgeUrl={team.strBadge} teamName={team.strTeam} />
-          <TeamDetails
-            country={team.strCountry}
-            sport={team.strSport}
-            leagues={[team.strLeague, team.strLeague2].filter(Boolean)}
-            stadium={team.strStadium}
-          />
-          <TeamSocialMedia
-            facebook={team.strFacebook}
-            twitter={team.strTwitter}
-            instagram={team.strInstagram}
-          />
+        <Grid item xs={12} sm={4} md={3}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              position: "sticky",
+              top: `${navHeight}px`,
+            }}
+          >
+            <TeamBadge badgeUrl={team.strBadge} teamName={team.strTeam} />
+            <TeamDetails
+              country={team.strCountry}
+              sport={team.strSport}
+              leagues={[team.strLeague, team.strLeague2].filter(Boolean)}
+              stadium={team.strStadium}
+            />
+            <TeamSocialMedia
+              facebook={team.strFacebook}
+              twitter={team.strTwitter}
+              instagram={team.strInstagram}
+            />
+          </Box>
         </Grid>
 
         <Grid item sx={{ display: "flex", justifyContent: "center" }}>
