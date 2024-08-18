@@ -1,5 +1,5 @@
 import ApiClient from "./ApiClient";
-import { ResultList } from "../entities/Result";
+import { ResultList } from "../entities/GameResult";
 
 class TeamLastGamesService extends ApiClient<ResultList> {
   getLastGames = async (teamId: string) => {

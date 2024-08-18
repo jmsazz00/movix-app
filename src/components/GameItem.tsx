@@ -1,7 +1,7 @@
 import { Box, Divider, ListItem, Typography } from "@mui/material";
 import Score from "./Score";
 import TeamScoreBadge from "./TeamScoreBadge";
-import Result from "../entities/Result";
+import Result from "../entities/GameResult";
 
 interface GameItemProps {
   game: Result;

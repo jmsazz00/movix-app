@@ -1,5 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
 interface TeamDetailsProps {
   country: string;
@@ -85,7 +86,7 @@ const TeamDetails = ({
             Stadium
           </Typography>
           <Typography variant="body1" fontWeight="bold">
-            {stadium || "N/A"}
+            <Link to={`/s/${stadium}`}>{stadium || "N/A"}</Link>
           </Typography>
         </Grid>
       </Grid>

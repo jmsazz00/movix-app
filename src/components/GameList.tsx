@@ -1,6 +1,6 @@
 import { Box, Divider, List, Typography } from "@mui/material";
 import GameItem from "./GameItem";
-import Result from "../entities/Result";
+import Result from "../entities/GameResult";
 
 interface GameListProps {
   title: string;

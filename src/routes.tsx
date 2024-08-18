@@ -5,6 +5,7 @@ import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import Layout from "./pages/Layout";
 import TeamDetailPage from "./pages/TeamDetailPage";
+import StadiumPage from "./pages/StadiumPage";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
         ],
       },
       { path: "t/:name", element: <TeamDetailPage /> },
+      { path: "s/:stadium", element: <StadiumPage /> },
       { path: "*", element: <ErrorPage /> },
     ],
   },
