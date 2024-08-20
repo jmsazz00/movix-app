@@ -15,8 +15,11 @@ interface TeamQueryStore {
 const useTeamQueryStore = create<TeamQueryStore>()((set) => ({
   teamQuery: { sortBy: "name_asc" },
   setCountryName: (name?: string) =>
-    set(() => ({ teamQuery: { countryName: name, sortBy: "name_asc" } })),
-
+    set((store) => {
+      if (store.teamQuery.countryName !== name)
+        return { teamQuery: { countryName: name, sortBy: "name_asc" } };
+      return store;
+    }),
   setSortBy: (sortBy: SortOption) =>
     set((store) => ({ teamQuery: { ...store.teamQuery, sortBy } })),
 }));

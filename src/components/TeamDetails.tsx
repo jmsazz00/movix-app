@@ -86,7 +86,15 @@ const TeamDetails = ({
             Stadium
           </Typography>
           <Typography variant="body1" fontWeight="bold">
-            <Link to={`/s/${stadium}`}>{stadium || "N/A"}</Link>
+            <Link
+              to={`/s/${stadium}`}
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+              }}
+            >
+              {stadium || "N/A"}
+            </Link>
           </Typography>
         </Grid>
       </Grid>

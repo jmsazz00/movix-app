@@ -15,6 +15,7 @@ const useCountries = () => {
   return useQuery({
     queryKey: ["countries"],
     queryFn: apiClient.getAll,
+    staleTime: 24 * 3600 * 1000, // 24h
   });
 };
 

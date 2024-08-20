@@ -39,7 +39,7 @@ const CountriesList = () => {
           fullName: country.name_en,
         };
       });
-  }, [list, options]);
+  }, [list?.countries]);
 
   if (isLoading)
     return (

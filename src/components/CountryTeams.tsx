@@ -17,7 +17,7 @@ const CountryTeams = ({ selectedCountry }: Props) => {
   const setSortBy = useTeamQueryStore((t) => t.setSortBy);
 
   const { data: teams, isLoading, error } = useTeams(selectedCountry);
-  const skeletonCount = Array.from({ length: 25 }, (v, k) => k + 1);
+  const skeletonCount = Array.from({ length: 25 }, (_v, k) => k + 1);
 
   if (error) return <Alert severity="error">An unexpected error occured</Alert>;
 
