@@ -1,4 +1,4 @@
-interface Stadium {
+export interface Venue {
   idVenue: string;
   strVenue: string;
   strVenueAlternate: string;
@@ -19,4 +19,6 @@ interface Stadium {
   strTwitter: string;
 }
 
-export default Stadium;
+export interface VenueList {
+  venues: Venue[];
+}
