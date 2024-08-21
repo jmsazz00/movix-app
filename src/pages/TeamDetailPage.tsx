@@ -13,7 +13,7 @@ import TeamBadge from "../components/TeamBadge";
 import TeamDescription from "../components/TeamDescription";
 import TeamDetails from "../components/TeamDetails";
 import TeamLastGames from "../components/TeamLastGames";
-import TeamSocialMedia from "../components/TeamSocialMedia";
+import TeamSocialMedia from "../components/SocialMedia";
 import LnOpts from "../entities/LanguageType";
 import useTeam from "../hooks/useTeam";
 import navHeight from "../utilities/navHeight";

@@ -1,17 +1,17 @@
 import { Box, IconButton } from "@mui/material";
 import { Facebook, Twitter, Instagram } from "@mui/icons-material";
 
-interface TeamSocialMediaProps {
+interface SocialMediaProps {
   facebook: string;
   twitter: string;
   instagram: string;
 }
 
-const TeamSocialMedia = ({
+const SocialMedia = ({
   facebook,
   twitter,
   instagram,
-}: TeamSocialMediaProps) => (
+}: SocialMediaProps) => (
   <Box mt={2}>
     {facebook && (
       <IconButton
@@ -46,4 +46,4 @@ const TeamSocialMedia = ({
   </Box>
 );
 
-export default TeamSocialMedia;
+export default SocialMedia;
