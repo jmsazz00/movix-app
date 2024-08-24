@@ -24,7 +24,7 @@ const CountriesList = () => {
   const scrollToTop = useScrollToTop(true);
 
   const handleSelectCountry = (fullName: string) => {
-    navigate(`/c/${fullName}`);
+    navigate(`/c/${encodeURIComponent(fullName)}`);
     scrollToTop();
   };
 

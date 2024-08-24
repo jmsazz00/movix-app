@@ -32,7 +32,7 @@ const TeamShortDesc = ({ teamName, desc, limit }: Props) => {
       <Button
         size="small"
         onClick={() => {
-          navigate(`/t/${teamName}`);
+          navigate(`/t/${encodeURIComponent(teamName)}`);
           scrollToTop();
         }}
       >

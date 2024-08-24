@@ -86,7 +86,7 @@ const TeamDetails = ({
             Stadium
           </Typography>
           <Link
-            to={`/v/${stadium}`}
+            to={`/v/${encodeURIComponent(stadium)}`}
             style={{
               textDecoration: "none",
               color: "inherit",

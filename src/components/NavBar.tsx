@@ -1,6 +1,15 @@
-import { AppBar, Box, Toolbar, useTheme } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  useTheme,
+  TextField,
+  InputAdornment,
+  IconButton,
+} from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
 import darkLogo from "../assets/movix-black.png";
 import whiteLogo from "../assets/movix-white.png";
 import ModeSwitcher from "./ModeSwitcher";
@@ -15,9 +24,9 @@ const NavBar = () => {
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const [isHidden, setIsHidden] = useState<boolean>(false);
   const [initialLoad, setInitialLoad] = useState<boolean>(true);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
-    // Delay setting initialLoad to false to avoid flicker
     const timer = setTimeout(() => {
       setInitialLoad(false);
     }, 50);
@@ -40,6 +49,14 @@ const NavBar = () => {
       clearTimeout(timer);
     };
   }, [lastScrollY]);
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/players?name=${encodeURIComponent(searchQuery.trim())}`);
+      scrollToTop();
+    }
+  };
 
   return (
     <Box
@@ -73,6 +90,50 @@ const NavBar = () => {
               height={45}
             />
           </Box>
+
+          <Box
+            component="form"
+            onSubmit={handleSearchSubmit}
+            sx={{
+              mx: 2,
+              flexGrow: 1,
+              display: "flex",
+              alignItems: "center",
+              maxWidth: "900px",
+            }}
+          >
+            <TextField
+              fullWidth
+              size="small"
+              placeholder="Search for players..."
+              variant="outlined"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              sx={{
+                "& .MuiOutlinedInput-root": {
+                  borderRadius: "20px",
+                  backgroundColor:
+                    theme.palette.mode === "dark" ? "#333" : "#f1f1f1",
+                },
+                "& .MuiInputBase-placeholder": {
+                  color:
+                    theme.palette.mode === "dark"
+                      ? "rgba(255, 255, 255, 0.5)"
+                      : "rgba(0, 0, 0, 0.6)",
+                },
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <IconButton type="submit" aria-label="search" sx={{ p: 0 }}>
+                      <SearchIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Box>
+
           <ModeSwitcher />
         </Toolbar>
       </AppBar>
