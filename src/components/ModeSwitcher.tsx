@@ -12,14 +12,11 @@ const ModeSwitcher = () => {
     <Box
       sx={{
         borderRadius: 1,
-        p: 3,
+        p: 2,
+        pl: 0,
       }}
     >
-      <IconButton
-        sx={{ ml: 1 }}
-        onClick={colorMode.toggleColorMode}
-        color="inherit"
-      >
+      <IconButton onClick={colorMode.toggleColorMode} color="inherit">
         {theme.palette.mode === "dark" ? (
           <Brightness7Icon />
         ) : (

@@ -1,24 +1,18 @@
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  useTheme,
-  TextField,
-  InputAdornment,
-  IconButton,
-} from "@mui/material";
+import { AppBar, Box, Toolbar, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import SearchIcon from "@mui/icons-material/Search";
+import { useLocation, useNavigate } from "react-router-dom";
 import darkLogo from "../assets/movix-black.png";
 import whiteLogo from "../assets/movix-white.png";
-import ModeSwitcher from "./ModeSwitcher";
 import "../css/NavBar.css";
 import useScrollToTop from "../hooks/useScrollToTop";
+import navHeight from "../utilities/navHeight";
+import Input from "./Input";
+import ModeSwitcher from "./ModeSwitcher";
 
 const NavBar = () => {
   const theme = useTheme();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const scrollToTop = useScrollToTop(false);
 
   const [lastScrollY, setLastScrollY] = useState<number>(0);
@@ -27,13 +21,16 @@ const NavBar = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
+    setSearchQuery("");
+  }, [pathname]);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setInitialLoad(false);
     }, 50);
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const navHeight = 78;
 
       if (currentScrollY > navHeight && currentScrollY > lastScrollY)
         setIsHidden(true);
@@ -52,8 +49,9 @@ const NavBar = () => {
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/players?name=${encodeURIComponent(searchQuery.trim())}`);
+    const formattedQuery = searchQuery.trim().replace(/\s+/g, " ");
+    if (formattedQuery) {
+      navigate(`/p/${encodeURIComponent(formattedQuery)}`);
       scrollToTop();
     }
   };
@@ -91,48 +89,13 @@ const NavBar = () => {
             />
           </Box>
 
-          <Box
-            component="form"
+          <Input
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             onSubmit={handleSearchSubmit}
-            sx={{
-              mx: 2,
-              flexGrow: 1,
-              display: "flex",
-              alignItems: "center",
-              maxWidth: "900px",
-            }}
-          >
-            <TextField
-              fullWidth
-              size="small"
-              placeholder="Search for players..."
-              variant="outlined"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              sx={{
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "20px",
-                  backgroundColor:
-                    theme.palette.mode === "dark" ? "#333" : "#f1f1f1",
-                },
-                "& .MuiInputBase-placeholder": {
-                  color:
-                    theme.palette.mode === "dark"
-                      ? "rgba(255, 255, 255, 0.5)"
-                      : "rgba(0, 0, 0, 0.6)",
-                },
-              }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <IconButton type="submit" aria-label="search" sx={{ p: 0 }}>
-                      <SearchIcon />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </Box>
+            placeholder="Search for players..."
+            maxWidth="1000px"
+          />
 
           <ModeSwitcher />
         </Toolbar>
