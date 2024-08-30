@@ -64,9 +64,9 @@ const Input = ({
           },
         }}
         InputProps={{
-          startAdornment: (
+          endAdornment: (
             <InputAdornment position="start">
-              <IconButton type="submit" aria-label="search" sx={{ p: 0 }}>
+              <IconButton type="submit" aria-label="search">
                 <SearchIcon />
               </IconButton>
             </InputAdornment>

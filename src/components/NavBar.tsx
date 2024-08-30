@@ -53,6 +53,7 @@ const NavBar = () => {
     if (formattedQuery) {
       navigate(`/p/${encodeURIComponent(formattedQuery)}`);
       scrollToTop();
+      setSearchQuery("");
     }
   };
 
