@@ -1,11 +1,11 @@
 import { Card, Typography } from "@mui/material";
-import { Detail } from "./VenueDetailsSection";
+import Detail from "../entities/Detail";
 
 interface Props {
   detail: Detail;
 }
 
-const VenueDetailsCard = ({ detail }: Props) => (
+const DetailCard = ({ detail }: Props) => (
   <Card
     sx={{
       backdropFilter: "blur(10px)",
@@ -42,4 +42,4 @@ const VenueDetailsCard = ({ detail }: Props) => (
   </Card>
 );
 
-export default VenueDetailsCard;
+export default DetailCard;

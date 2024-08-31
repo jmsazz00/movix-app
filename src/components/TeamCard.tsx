@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Team } from "../entities/Team";
 import calculateRating from "../utilities/calculateRating";
-import TeamBadge from "./Badge";
+import Badge from "./Badge";
 import TeamShortDesc from "./TeamShortDesc";
 
 interface Props {
@@ -49,7 +49,7 @@ const TeamCard = ({ teamData }: Props) => {
         }}
       >
         <CardMedia sx={{ pt: 2 }}>
-          <TeamBadge badgeUrl={strBadge} teamName={strTeam} />
+          <Badge badgeUrl={strBadge} name={strTeam} />
         </CardMedia>
         <CardContent sx={{ py: 1 }}>
           <Typography variant="body2" color="text.secondary">

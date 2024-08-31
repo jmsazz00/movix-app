@@ -1,10 +1,6 @@
 import { Box } from "@mui/material";
-import VenueDetailsCard from "./VenueDetailsCard";
-
-export interface Detail {
-  label: string;
-  value: string;
-}
+import Detail from "../entities/Detail";
+import DetailCard from "./DetailCard";
 
 interface Props {
   details: Detail[];
@@ -21,7 +17,7 @@ const VenueDetailsSection = ({ details }: Props) => (
     }}
   >
     {details.map((detail, index) => (
-      <VenueDetailsCard key={index} detail={detail} />
+      <DetailCard key={index} detail={detail} />
     ))}
   </Box>
 );

@@ -24,7 +24,7 @@ const PlayerDetailPage = () => {
   const playerData = players.player[0];
 
   return (
-    <Box p={4}>
+    <Box p={3.5}>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={4} md={3}>
           <Box
