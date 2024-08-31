@@ -5,7 +5,7 @@ interface Props {
   description: string;
 }
 
-const TeamDescription = ({ description }: Props) => {
+const CollapsableText = ({ description }: Props) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   const [expanded, setExpanded] = useState(false);
@@ -24,10 +24,7 @@ const TeamDescription = ({ description }: Props) => {
   }, []);
 
   return (
-    <Box mt={2} mb={4}>
-      <Typography variant="h6" color={"textSecondary"} fontWeight={"bold"}>
-        Overview
-      </Typography>
+    <Box>
       <Collapse
         in={expanded}
         collapsedSize={75}
@@ -56,4 +53,4 @@ const TeamDescription = ({ description }: Props) => {
   );
 };
 
-export default TeamDescription;
+export default CollapsableText;

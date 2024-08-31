@@ -8,12 +8,12 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import Badge from "../components/Badge";
+import DefaultDescription from "../components/DefaultDescription";
 import LanguageSelector from "../components/LanguageSelector";
-import TeamBadge from "../components/TeamBadge";
-import TeamDescription from "../components/TeamDescription";
+import SocialMedia from "../components/SocialMedia";
 import TeamDetails from "../components/TeamDetails";
 import TeamLastGames from "../components/TeamLastGames";
-import TeamSocialMedia from "../components/SocialMedia";
 import LnOpts from "../entities/LanguageType";
 import useTeam from "../hooks/useTeam";
 import navHeight from "../utilities/navHeight";
@@ -59,14 +59,14 @@ const TeamDetailPage = () => {
               top: `${navHeight}px`,
             }}
           >
-            <TeamBadge badgeUrl={team.strBadge} teamName={team.strTeam} />
+            <Badge badgeUrl={team.strBadge} name={team.strTeam} />
             <TeamDetails
               country={team.strCountry}
               sport={team.strSport}
               leagues={[team.strLeague, team.strLeague2].filter(Boolean)}
               stadium={team.strStadium}
             />
-            <TeamSocialMedia
+            <SocialMedia
               facebook={team.strFacebook}
               twitter={team.strTwitter}
               instagram={team.strInstagram}
@@ -80,7 +80,7 @@ const TeamDetailPage = () => {
 
         <Grid item xs={12} sm={7} md={8}>
           <LanguageSelector value={language} onChange={handleLanguageChange} />
-          <TeamDescription description={team[`strDescription${language}`]} />
+          <DefaultDescription description={team[`strDescription${language}`]} />
           <TeamLastGames teamId={team.idTeam} />
         </Grid>
       </Grid>

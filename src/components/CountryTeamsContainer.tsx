@@ -6,7 +6,7 @@ import useTeamQueryStore from "../store/TeamQueryStore";
 import CountryTeams from "./CountryTeams";
 import MainHeading from "./MainHeading";
 
-const CountryTeamsBox = () => {
+const CountryTeamsContainer = () => {
   const { country } = useParams();
   const onSelectCountry = useTeamQueryStore((t) => t.setCountryName);
 
@@ -32,4 +32,4 @@ const CountryTeamsBox = () => {
   );
 };
 
-export default CountryTeamsBox;
+export default CountryTeamsContainer;

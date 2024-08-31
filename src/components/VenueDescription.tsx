@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import ExpandableText from "./ExpandableText";
+import CollapsableText from "./CollapsableText";
 
 interface Props {
   venueName: string;
@@ -46,22 +46,7 @@ const VenueDescription = ({ venueName, description }: Props) => (
     >
       About {venueName}
     </Typography>
-
-    <ExpandableText
-      limit={500}
-      text={description}
-      style={{
-        lineHeight: "1.6",
-        fontSize: "1.1rem",
-        textAlign: "justify",
-        color: (theme: {
-          palette: { mode: string; grey: any[]; text: { secondary: any } };
-        }) =>
-          theme.palette.mode === "dark"
-            ? theme.palette.grey[400]
-            : theme.palette.text.secondary,
-      }}
-    />
+    <CollapsableText description={description} />
   </Box>
 );
 

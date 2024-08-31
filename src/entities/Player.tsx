@@ -17,7 +17,6 @@ export interface Player {
   strTwitter: string;
   strInstagram: string;
   strHeight: string;
-  strWeight: string;
   strThumb: string;
   strCutout: string;
   strFanart1: string;

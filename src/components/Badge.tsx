@@ -1,24 +1,24 @@
 import { Box, Typography } from "@mui/material";
 
-interface TeamBadgeProps {
+interface BadgeProps {
   badgeUrl: string;
-  teamName: string;
+  name: string;
 }
 
-const TeamBadge = ({ badgeUrl, teamName }: TeamBadgeProps) => (
+const Badge = ({ badgeUrl, name }: BadgeProps) => (
   <Box>
     <img
       src={badgeUrl + "/small"}
-      alt={`${teamName} badge`}
+      alt={`${name} badge`}
       style={{
         objectFit: "contain",
         height: 185,
       }}
     />
     <Typography mt={1} fontWeight={"bold"} variant="h5" textAlign={"center"}>
-      {teamName}
+      {name}
     </Typography>
   </Box>
 );
 
-export default TeamBadge;
+export default Badge;

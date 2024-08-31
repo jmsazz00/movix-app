@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Team } from "../entities/Team";
 import calculateRating from "../utilities/calculateRating";
-import TeamBadge from "./TeamBadge";
+import TeamBadge from "./Badge";
 import TeamShortDesc from "./TeamShortDesc";
 
 interface Props {

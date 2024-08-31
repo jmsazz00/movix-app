@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import CountryTeamsBox from "./components/CountryTeamsBox";
+import CountryTeamsContainer from "./components/CountryTeamsContainer";
 import TopTeams from "./components/TopTeams";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
         element: <HomePage />,
         children: [
           { path: "/", element: <TopTeams /> },
-          { path: "c/:country", element: <CountryTeamsBox /> },
+          { path: "c/:country", element: <CountryTeamsContainer /> },
         ],
       },
       { path: "t/:name", element: <TeamDetailPage /> },

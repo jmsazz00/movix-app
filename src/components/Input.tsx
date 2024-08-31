@@ -52,6 +52,7 @@ const Input = ({
           "& .MuiOutlinedInput-root": {
             borderRadius: "20px",
             backgroundColor: theme.palette.mode === "dark" ? "#333" : "#e9e9e9",
+            px: 1,
           },
           "& .MuiOutlinedInput-notchedOutline": {
             borderColor: theme.palette.mode === "dark" ? "#555" : "#b0b0b0",
