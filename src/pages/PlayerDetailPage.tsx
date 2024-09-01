@@ -1,4 +1,4 @@
-import { Alert, Box, CircularProgress, Divider, Grid } from "@mui/material";
+import { Alert, Box, CircularProgress } from "@mui/material";
 import { useParams } from "react-router-dom";
 import Badge from "../components/Badge";
 import DefaultDescription from "../components/DefaultDescription";
@@ -6,7 +6,8 @@ import PlayerDetails from "../components/PlayerDetails";
 import PlayerGallery from "../components/PlayerGallery";
 import SocialMedia from "../components/SocialMedia";
 import usePlayer from "../hooks/usePlayer";
-import navHeight from "../utilities/navHeight";
+import DetailLayout from "./DetailLayout";
+import { leftContentBoxStyles } from "../css/styles";
 
 const PlayerDetailPage = () => {
   const { player } = useParams();
@@ -24,43 +25,27 @@ const PlayerDetailPage = () => {
   const playerData = players.player[0];
 
   return (
-    <Box p={3.5}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={4} md={3}>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              position: "sticky",
-              top: `${navHeight}px`,
-            }}
-          >
-            <Badge
-              badgeUrl={playerData.strCutout}
-              name={playerData.strPlayer}
-            />
-            <PlayerDetails
-              team={playerData.strTeam}
-              birthdate={playerData.dateBorn}
-              nationality={playerData.strNationality}
-              sport={playerData.strSport}
-              position={playerData.strPosition}
-              height={playerData.strHeight}
-            />
-            <SocialMedia
-              facebook={playerData.strFacebook}
-              twitter={playerData.strTwitter}
-              instagram={playerData.strInstagram}
-            />
-          </Box>
-        </Grid>
-
-        <Grid item sx={{ display: "flex", justifyContent: "center" }}>
-          <Divider orientation="vertical" flexItem sx={{ mr: 4 }} />
-        </Grid>
-
-        <Grid item xs={12} sm={7} md={8}>
+    <DetailLayout
+      leftContent={
+        <Box sx={leftContentBoxStyles}>
+          <Badge badgeUrl={playerData.strCutout} name={playerData.strPlayer} />
+          <PlayerDetails
+            team={playerData.strTeam}
+            birthdate={playerData.dateBorn}
+            nationality={playerData.strNationality}
+            sport={playerData.strSport}
+            position={playerData.strPosition}
+            height={playerData.strHeight}
+          />
+          <SocialMedia
+            facebook={playerData.strFacebook}
+            twitter={playerData.strTwitter}
+            instagram={playerData.strInstagram}
+          />
+        </Box>
+      }
+      rightContent={
+        <>
           <DefaultDescription description={playerData.strDescriptionEN} />
           <PlayerGallery
             images={[
@@ -70,9 +55,9 @@ const PlayerDetailPage = () => {
               playerData.strFanart4,
             ]}
           />
-        </Grid>
-      </Grid>
-    </Box>
+        </>
+      }
+    />
   );
 };
 
