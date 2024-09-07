@@ -18,7 +18,7 @@ const PlayerGallery = ({ images }: PlayerGalleryProps) => {
         {validImages.map((image, index) => (
           <ImageListItem key={index}>
             <img
-              src={`${image}/preview`} 
+              src={`${image}/small`} 
               alt={`Player image ${index + 1}`}
               style={{ objectFit: "cover", width: "100%", height: "100%" }}
             />

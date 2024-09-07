@@ -16,10 +16,7 @@ const DetailCard = ({ detail }: Props) => (
       boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.2)",
       borderRadius: "12px",
       borderLeft: "4px solid",
-      borderLeftColor: (theme) =>
-        theme.palette.mode === "dark"
-          ? theme.palette.primary.light
-          : theme.palette.primary.main,
+      borderLeftColor: (theme) => theme.palette.secondary.light,
       padding: "16px",
     }}
   >

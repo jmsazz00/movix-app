@@ -26,7 +26,7 @@ const VenueImageGallery = ({ imagesSrc }: Props) => {
           sx={{
             width: { xs: "100%", sm: "30%" },
             height: "200px",
-            backgroundImage: `url(${image})`,
+            backgroundImage: `url(${image}/small)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             borderRadius: "8px",
