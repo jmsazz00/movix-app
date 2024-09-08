@@ -8,6 +8,10 @@ import SocialMedia from "../components/SocialMedia";
 import usePlayer from "../hooks/usePlayer";
 import DetailLayout from "./DetailLayout";
 import { leftContentBoxStyles } from "../css/styles";
+import { lazy, Suspense } from "react";
+import LazyLoad from "../components/LazyLoad";
+
+const PlayerFormerTeams = lazy(() => import("../components/PlayerFormerTeams"));
 
 const PlayerDetailPage = () => {
   const { player } = useParams();
@@ -22,39 +26,57 @@ const PlayerDetailPage = () => {
       </Alert>
     );
 
-  const playerData = players.player[0];
+  const {
+    strCutout,
+    strPlayer,
+    strTeam,
+    dateBorn,
+    strNationality,
+    strSport,
+    strPosition,
+    strHeight,
+    strFacebook,
+    strTwitter,
+    strInstagram,
+    idPlayer,
+    strDescriptionEN,
+    strFanart1,
+    strFanart2,
+    strFanart3,
+    strFanart4,
+  } = players.player[0];
 
   return (
     <DetailLayout
       leftContent={
         <Box sx={leftContentBoxStyles}>
-          <Badge badgeUrl={playerData.strCutout} name={playerData.strPlayer} />
+          <Badge badgeUrl={strCutout} name={strPlayer} />
           <PlayerDetails
-            team={playerData.strTeam}
-            birthdate={playerData.dateBorn}
-            nationality={playerData.strNationality}
-            sport={playerData.strSport}
-            position={playerData.strPosition}
-            height={playerData.strHeight}
+            team={strTeam}
+            birthdate={dateBorn}
+            nationality={strNationality}
+            sport={strSport}
+            position={strPosition}
+            height={strHeight}
           />
           <SocialMedia
-            facebook={playerData.strFacebook}
-            twitter={playerData.strTwitter}
-            instagram={playerData.strInstagram}
+            facebook={strFacebook}
+            twitter={strTwitter}
+            instagram={strInstagram}
           />
         </Box>
       }
       rightContent={
         <>
-          <DefaultDescription description={playerData.strDescriptionEN} />
+          <DefaultDescription description={strDescriptionEN} />
           <PlayerGallery
-            images={[
-              playerData.strFanart1,
-              playerData.strFanart2,
-              playerData.strFanart3,
-              playerData.strFanart4,
-            ]}
+            images={[strFanart1, strFanart2, strFanart3, strFanart4]}
           />
+          <Suspense fallback={<CircularProgress />}>
+            <LazyLoad>
+              <PlayerFormerTeams playerId={idPlayer} />
+            </LazyLoad>
+          </Suspense>
         </>
       }
     />
