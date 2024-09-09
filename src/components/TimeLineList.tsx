@@ -7,7 +7,7 @@ interface TimeLineListProps {
 }
 
 const TimeLineList = ({ title, children }: TimeLineListProps) => (
-  <Box>
+  <Box mt={4}>
     <DetailHeading title={title} />
     <Divider />
     <List sx={{ position: "relative", py: 0 }}>{children}</List>
