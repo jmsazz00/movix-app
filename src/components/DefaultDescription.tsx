@@ -1,5 +1,6 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import CollapsableText from "./CollapsableText";
+import DetailHeading from "./DetailHeading";
 
 interface Props {
   description: string;
@@ -8,9 +9,7 @@ interface Props {
 const DefaultDescription = ({ description }: Props) => {
   return (
     <Box mt={2} mb={4}>
-      <Typography variant="h6" color={"textSecondary"} fontWeight={"bold"}>
-        Overview
-      </Typography>
+      <DetailHeading title={"Overview"} />
       <CollapsableText description={description} />
     </Box>
   );

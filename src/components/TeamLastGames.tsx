@@ -1,6 +1,7 @@
 import { CircularProgress } from "@mui/material";
 import useTeamLastGames from "../hooks/useTeamLastGames";
-import GameList from "./GameList";
+import TimeLineList from "./TimeLineList";
+import GameItem from "./GameItem";
 
 interface Props {
   teamId: string;
@@ -14,7 +15,18 @@ const TeamLastGames = ({ teamId }: Props) => {
   if (error || !games || !games.results || games.results.length === 0)
     return null;
 
-  return <GameList title="Last Games" games={games.results} />;
+  return (
+    <TimeLineList title="Last Games">
+      {games.results.map((game, index) => (
+        <GameItem
+          game={game}
+          index={index}
+          totalGames={games.results.length}
+          key={game.idEvent}
+        />
+      ))}
+    </TimeLineList>
+  );
 };
 
 export default TeamLastGames;

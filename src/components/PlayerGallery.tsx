@@ -1,4 +1,5 @@
-import { Box, ImageList, ImageListItem, Typography } from "@mui/material";
+import { Box, ImageList, ImageListItem } from "@mui/material";
+import DetailHeading from "./DetailHeading";
 
 interface PlayerGalleryProps {
   images: string[];
@@ -11,14 +12,12 @@ const PlayerGallery = ({ images }: PlayerGalleryProps) => {
 
   return (
     <Box mt={4}>
-      <Typography variant="h6" color={"textSecondary"} fontWeight={"bold"} >
-        Gallery
-      </Typography>
-      <ImageList cols={2} gap={8} sx={{ width: '100%', height: 'auto' }}>
+      <DetailHeading title={"Gallery"} />
+      <ImageList cols={2} gap={8} sx={{ width: "100%", height: "auto" }}>
         {validImages.map((image, index) => (
           <ImageListItem key={index}>
             <img
-              src={`${image}/small`} 
+              src={`${image}/small`}
               alt={`Player image ${index + 1}`}
               style={{ objectFit: "cover", width: "100%", height: "100%" }}
             />
