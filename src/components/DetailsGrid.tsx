@@ -52,7 +52,7 @@ const DetailsGrid = ({ data }: DetailsGridProps) => {
                 </Typography>
               </Link>
             ) : (
-              <Typography variant="body1" fontWeight="bold">
+              <Typography component={"div"} variant="body1" fontWeight="bold">
                 {item.value || "N/A"}
               </Typography>
             )}

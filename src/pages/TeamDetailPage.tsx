@@ -1,5 +1,5 @@
 import { Alert, Box, CircularProgress, SelectChangeEvent } from "@mui/material";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { useParams } from "react-router-dom";
 import Badge from "../components/Badge";
 import DefaultDescription from "../components/DefaultDescription";
@@ -11,6 +11,9 @@ import { leftContentBoxStyles } from "../css/styles";
 import LnOpts from "../entities/LanguageType";
 import useTeam from "../hooks/useTeam";
 import DetailLayout from "./DetailLayout";
+import LazyLoad from "../components/LazyLoad";
+
+const TeamJerseys = lazy(() => import("../components/TeamJerseys"));
 
 const TeamDetailPage = () => {
   const { name } = useParams();
@@ -56,6 +59,11 @@ const TeamDetailPage = () => {
           <LanguageSelector value={language} onChange={handleLanguageChange} />
           <DefaultDescription description={team[`strDescription${language}`]} />
           <TeamLastGames teamId={team.idTeam} />
+          <Suspense fallback={<CircularProgress />}>
+            <LazyLoad>
+              <TeamJerseys teamId={team.idTeam} />
+            </LazyLoad>
+          </Suspense>
         </>
       }
     />

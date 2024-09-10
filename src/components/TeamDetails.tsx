@@ -24,7 +24,7 @@ const TeamDetails = ({
             league.startsWith("_No League") ? (
               "N/A"
             ) : (
-              <div>&#8226; {league}</div>
+              <div key={league}>&#8226; {league}</div>
             )
           )}
         </>
