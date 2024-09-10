@@ -19,7 +19,7 @@ const FormerTeamItem = ({ team, index, totalTeams }: FormerTeamItemProps) => {
       >
         <Avatar
           variant="square"
-          src={team.strBadge}
+          src={team.strBadge + "/tiny"}
           alt={team.strFormerTeam}
           sx={{ width: 40, height: 40 }}
         />

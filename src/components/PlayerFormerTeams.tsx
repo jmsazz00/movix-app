@@ -1,6 +1,7 @@
 import { CircularProgress } from "@mui/material";
 import { FormerTeam } from "../entities/FormerTeams";
 import usePlayerFormerTeams from "../hooks/usePlayerFormerTeams";
+import useFormerTeamsSorting from "../hooks/useFormerTeamsSorting";
 import PlayerFormerTeamItem from "./FormerTeamItem";
 import TimeLineList from "./TimeLineList";
 
@@ -14,25 +15,20 @@ const PlayerFormerTeams = ({ playerId }: Props) => {
     isLoading,
     error,
   } = usePlayerFormerTeams(playerId);
+  const sortedTeams = useFormerTeamsSorting(formerTeams?.formerteams);
 
   if (isLoading) return <CircularProgress />;
 
-  if (
-    error ||
-    !formerTeams ||
-    !formerTeams.formerteams ||
-    formerTeams.formerteams.length === 0
-  )
-    return null;
+  if (error || sortedTeams.length === 0) return null;
 
   return (
     <TimeLineList title="Former Teams">
-      {formerTeams.formerteams.map((team: FormerTeam, index: number) => (
+      {sortedTeams.map((team: FormerTeam, index: number) => (
         <PlayerFormerTeamItem
-          key={team.idFormerTeam}
+          key={team.id}
           team={team}
           index={index}
-          totalTeams={formerTeams.formerteams.length}
+          totalTeams={sortedTeams.length}
         />
       ))}
     </TimeLineList>

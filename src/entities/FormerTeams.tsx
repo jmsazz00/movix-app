@@ -4,7 +4,7 @@ export interface FormerTeam {
   idFormerTeam: string;
   strPlayer: string;
   strFormerTeam: string;
-  strMoveType: "Permanent" | "Loan" | "Youth";
+  strMoveType: "Permanent" | "Loan" | "Youth" | "International";
   strBadge: string;
   strJoined: string;
   strDeparted: string;
