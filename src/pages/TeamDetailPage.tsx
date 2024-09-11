@@ -3,7 +3,6 @@ import { lazy, Suspense, useState } from "react";
 import { useParams } from "react-router-dom";
 import Badge from "../components/Badge";
 import DefaultDescription from "../components/DefaultDescription";
-import LanguageSelector from "../components/LanguageSelector";
 import SocialMedia from "../components/SocialMedia";
 import TeamDetails from "../components/TeamDetails";
 import TeamLastGames from "../components/TeamLastGames";
@@ -12,6 +11,7 @@ import LnOpts from "../entities/LanguageType";
 import useTeam from "../hooks/useTeam";
 import DetailLayout from "./DetailLayout";
 import LazyLoad from "../components/LazyLoad";
+import GenericSelector from "../components/GenericSelector";
 
 const TeamJerseys = lazy(() => import("../components/TeamJerseys"));
 
@@ -29,6 +29,12 @@ const TeamDetailPage = () => {
         Couldn't retrieve team details.
       </Alert>
     );
+
+  const lnOpts = [
+    { label: "English", value: "EN" },
+    { label: "Spanish", value: "ES" },
+    { label: "French", value: "FR" },
+  ];
 
   const handleLanguageChange = (event: SelectChangeEvent) => {
     setLanguage(event.target.value as LnOpts);
@@ -56,7 +62,12 @@ const TeamDetailPage = () => {
       }
       rightContent={
         <>
-          <LanguageSelector value={language} onChange={handleLanguageChange} />
+          <GenericSelector
+            value={language}
+            onChange={handleLanguageChange}
+            label="Language"
+            options={lnOpts}
+          />
           <DefaultDescription description={team[`strDescription${language}`]} />
           <TeamLastGames teamId={team.idTeam} />
           <Suspense fallback={<CircularProgress />}>
