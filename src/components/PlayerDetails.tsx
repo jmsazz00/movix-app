@@ -21,7 +21,12 @@ const PlayerDetails = ({
   const age = calculateAge(birthdate);
 
   const playerData = [
-    { label: "Team", value: team },
+    {
+      label: "Team",
+      value: team,
+      isLink: true,
+      linkPath: `/t/${encodeURIComponent(team)}`,
+    },
     { label: "Country", value: nationality },
     { label: "Sport", value: sport },
     { label: "Position", value: position },
