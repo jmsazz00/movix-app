@@ -10,7 +10,7 @@ interface Props {
 const TeamLastGames = ({ teamId }: Props) => {
   const { data: games, isLoading, error } = useTeamLastGames(teamId);
 
-  if (isLoading) return <CircularProgress sx={{ m: 2 }} />;
+  if (isLoading) return <CircularProgress sx={{ m: 2, mb: "400px" }} />;
 
   if (error || !games || !games.results || games.results.length === 0)
     return null;
