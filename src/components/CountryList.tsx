@@ -1,17 +1,17 @@
-import { useState, useMemo } from "react";
-import { Box, CircularProgress, Divider, Stack } from "@mui/material";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import { Box, CircularProgress, Divider, Stack } from "@mui/material";
+import { useMemo, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import useCountries from "../hooks/useCountries";
-import useTeamQueryStore from "../store/TeamQueryStore";
 import useScrollToTop from "../hooks/useScrollToTop";
-import { useNavigate } from "react-router-dom";
 import options from "../utilities/countries";
 import CountryInput from "./CountryInput";
 import CountryItem from "./CountryItem";
 
 const CountryList = () => {
   const { data: list, isLoading, error } = useCountries();
-  const selectedCountry = useTeamQueryStore((t) => t.teamQuery.countryName);
+  const { country } = useParams();
+
   const navigate = useNavigate();
   const scrollToTop = useScrollToTop(true);
 
@@ -69,7 +69,7 @@ const CountryList = () => {
           <CountryItem
             key={c.name_en}
             country={c}
-            isActive={selectedCountry === c.fullName}
+            isActive={country === c.fullName}
             onClick={() => handleSelectCountry(c.fullName)}
           />
         ))}
