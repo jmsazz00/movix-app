@@ -15,7 +15,7 @@ interface InputProps {
   maxWidth?: string | number;
 }
 
-const Input = ({
+const CustomizedInput = ({
   value,
   onChange,
   onSubmit,
@@ -78,4 +78,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default CustomizedInput;

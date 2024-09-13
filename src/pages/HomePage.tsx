@@ -1,6 +1,6 @@
 import { Box, Paper, styled } from "@mui/material";
 import { Outlet } from "react-router-dom";
-import CountriesList from "../components/CountriesList";
+import CountryList from "../components/CountryList";
 import navHeight from "../utilities/navHeight";
 
 export const Item = styled(Paper)(({ theme }) => ({
@@ -31,7 +31,7 @@ const HomePage = () => {
           }}
         >
           <Item>
-            <CountriesList />
+            <CountryList />
           </Item>
         </Box>
       </Box>

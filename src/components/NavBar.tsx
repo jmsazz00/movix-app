@@ -6,7 +6,7 @@ import whiteLogo from "../assets/movix-white.png";
 import "../css/NavBar.css";
 import useScrollToTop from "../hooks/useScrollToTop";
 import navHeight from "../utilities/navHeight";
-import Input from "./Input";
+import CustomizedInput from "./CustomizedInput";
 import ModeSwitcher from "./ModeSwitcher";
 
 const NavBar = () => {
@@ -90,7 +90,7 @@ const NavBar = () => {
             />
           </Box>
 
-          <Input
+          <CustomizedInput
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onSubmit={handleSearchSubmit}
