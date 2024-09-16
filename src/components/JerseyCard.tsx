@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Card, CardMedia } from "@mui/material";
+import useModalStore from "../store/ModalStore";
 
 interface JerseyCardProps {
   image: string;
@@ -8,8 +9,11 @@ interface JerseyCardProps {
 }
 
 const JerseyCard: React.FC<JerseyCardProps> = ({ image, type, season }) => {
+  const openModal = useModalStore((state) => state.openModal);
+
   return (
     <Card
+      onClick={() => openModal(image)}
       sx={{
         minWidth: 220,
         boxShadow: 3,
@@ -20,9 +24,10 @@ const JerseyCard: React.FC<JerseyCardProps> = ({ image, type, season }) => {
         },
         position: "relative",
         overflow: "visible",
+        cursor: "pointer",
       }}
     >
-      {/* Ribbon for jersey type */}
+      {/* Jersey Type Ribbon */}
       <Box
         sx={{
           position: "absolute",

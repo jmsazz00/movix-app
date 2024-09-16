@@ -12,6 +12,7 @@ import useTeam from "../hooks/useTeam";
 import DetailLayout from "./DetailLayout";
 import LazyLoad from "../components/LazyLoad";
 import GenericSelector from "../components/GenericSelector";
+import JerseyModal from "../components/JerseyModal";
 
 const TeamJerseys = lazy(() => import("../components/TeamJerseys"));
 
@@ -75,6 +76,7 @@ const TeamDetailPage = () => {
               <TeamJerseys teamId={team.idTeam} />
             </LazyLoad>
           </Suspense>
+          <JerseyModal />
         </>
       }
     />
