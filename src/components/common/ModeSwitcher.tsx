@@ -1,6 +1,6 @@
 import { Box, IconButton, useTheme } from "@mui/material";
 import { useContext } from "react";
-import { ColorModeContext } from "../theme";
+import { ColorModeContext } from "../../theme";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 

@@ -1,9 +1,9 @@
 import { CircularProgress } from "@mui/material";
-import { FormerTeam } from "../entities/FormerTeams";
-import usePlayerFormerTeams from "../hooks/usePlayerFormerTeams";
-import useFormerTeamsSorting from "../hooks/useFormerTeamsSorting";
-import PlayerFormerTeamItem from "./FormerTeamItem";
-import TimeLineList from "./TimeLineList";
+import { FormerTeam } from "../../entities/FormerTeams";
+import usePlayerFormerTeams from "../../hooks/usePlayerFormerTeams";
+import useFormerTeamsSorting from "../../hooks/useFormerTeamsSorting";
+import PlayerFormerTeamItem from "./PlayerFormerTeamItem";
+import TimeLineList from "../common/TimeLineList";
 
 interface Props {
   playerId: string;

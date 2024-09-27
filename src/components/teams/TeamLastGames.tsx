@@ -1,7 +1,7 @@
 import { CircularProgress } from "@mui/material";
-import useTeamLastGames from "../hooks/useTeamLastGames";
-import TimeLineList from "./TimeLineList";
-import GameItem from "./GameItem";
+import useTeamLastGames from "../../hooks/useTeamLastGames";
+import GameItem from "../common/GameItem";
+import TimeLineList from "../common/TimeLineList";
 
 interface Props {
   teamId: string;

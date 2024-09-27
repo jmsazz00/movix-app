@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import CountryTeamsContainer from "./components/CountryTeamsContainer";
-import TopTeams from "./components/TopTeams";
+import CountryTeamsContainer from "./components/countries/CountryTeamsContainer";
+import TopTeams from "./components/teams/TopTeams";
 import ErrorPage from "./pages/ErrorPage";
 import HomePage from "./pages/HomePage";
 import Layout from "./pages/Layout";

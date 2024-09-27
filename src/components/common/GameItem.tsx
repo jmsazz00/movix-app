@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import Score from "./Score";
-import TeamScoreBadge from "./TeamScoreBadge";
-import Result from "../entities/GameResult";
+import TeamScoreBadge from "../teams/TeamScoreBadge";
+import Result from "../../entities/GameResult";
 import TimelineItem from "./TimeLineItem";
 
 interface GameItemProps {

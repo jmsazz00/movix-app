@@ -1,8 +1,8 @@
 import { Box, Button, Grid } from "@mui/material";
+import { useEffect, useMemo, useState } from "react";
+import highlightedTeams from "../../utilities/highlightedTeam";
+import CustomGridItem from "../common/CustomGridItem";
 import HighlightedTeam from "./HighlightedTeam";
-import { useState, useEffect, useMemo } from "react";
-import highlightedTeams from "../utilities/highlightedTeam";
-import CustomGridItem from "./CustomGridItem";
 
 const HighlightedTeams = () => {
   const INITIAL_TEAMS_LIMIT = 6;

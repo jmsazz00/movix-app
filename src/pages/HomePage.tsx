@@ -1,8 +1,8 @@
 import { Box, Paper, styled, useMediaQuery, useTheme } from "@mui/material";
 import { Outlet } from "react-router-dom";
-import CountryList from "../components/CountryList";
+import CountryDropdown from "../components/countries/CountryDropdown";
+import CountryList from "../components/countries/CountryList";
 import navHeight from "../utilities/navHeight";
-import CountryDropdown from "../components/CountryDropdown";
 
 export const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fcfcfc",

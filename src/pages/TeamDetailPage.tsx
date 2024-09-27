@@ -1,20 +1,20 @@
 import { Alert, Box, CircularProgress, SelectChangeEvent } from "@mui/material";
 import { lazy, Suspense, useState } from "react";
 import { useParams } from "react-router-dom";
-import Badge from "../components/Badge";
-import DefaultDescription from "../components/DefaultDescription";
-import SocialMedia from "../components/SocialMedia";
-import TeamDetails from "../components/TeamDetails";
-import TeamLastGames from "../components/TeamLastGames";
+import Badge from "../components/common/Badge";
+import DefaultDescription from "../components/common/DefaultDescription";
+import GenericSelector from "../components/common/GenericSelector";
+import LazyLoad from "../components/common/LazyLoad";
+import SocialMedia from "../components/common/SocialMedia";
+import TeamDetails from "../components/teams/TeamDetails";
+import TeamJerseyModal from "../components/teams/TeamJerseyModal";
+import TeamLastGames from "../components/teams/TeamLastGames";
 import { leftContentBoxStyles } from "../css/styles";
 import LnOpts from "../entities/LanguageType";
 import useTeam from "../hooks/useTeam";
 import DetailLayout from "./DetailLayout";
-import LazyLoad from "../components/LazyLoad";
-import GenericSelector from "../components/GenericSelector";
-import JerseyModal from "../components/JerseyModal";
 
-const TeamJerseys = lazy(() => import("../components/TeamJerseys"));
+const TeamJerseys = lazy(() => import("../components/teams/TeamJerseys"));
 
 const TeamDetailPage = () => {
   const { name } = useParams();
@@ -76,7 +76,7 @@ const TeamDetailPage = () => {
               <TeamJerseys teamId={team.idTeam} />
             </LazyLoad>
           </Suspense>
-          <JerseyModal />
+          <TeamJerseyModal />
         </>
       }
     />

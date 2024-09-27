@@ -8,10 +8,10 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { Team } from "../entities/Team";
-import calculateRating from "../utilities/calculateRating";
-import Badge from "./Badge";
+import { Team } from "../../entities/Team";
+import calculateRating from "../../utilities/calculateRating";
 import TeamShortDesc from "./TeamShortDesc";
+import Badge from "../common/Badge";
 
 interface Props {
   teamData: Team;

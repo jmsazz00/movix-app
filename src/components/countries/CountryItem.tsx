@@ -1,5 +1,5 @@
 import { Box, Typography, useTheme } from "@mui/material";
-import { Country } from "../entities/Country";
+import { Country } from "../../entities/Country";
 
 interface Props {
   country: Country;

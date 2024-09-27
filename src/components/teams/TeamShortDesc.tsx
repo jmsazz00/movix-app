@@ -1,6 +1,6 @@
 import { Alert, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import useScrollToTop from "../hooks/useScrollToTop";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 interface Props {
   teamName: string;

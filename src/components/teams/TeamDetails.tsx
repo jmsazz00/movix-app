@@ -1,4 +1,4 @@
-import DetailsGrid from "./DetailsGrid";
+import DetailsGrid from "../common/DetailsGrid";
 
 interface TeamDetailsProps {
   country: string;

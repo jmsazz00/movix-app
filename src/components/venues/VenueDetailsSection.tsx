@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import Detail from "../entities/Detail";
-import DetailCard from "./DetailCard";
+import Detail from "../../entities/Detail";
+import DetailCard from "../common/DetailCard";
 
 interface Props {
   details: Detail[];

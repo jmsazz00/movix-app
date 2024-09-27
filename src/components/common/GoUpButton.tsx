@@ -2,7 +2,7 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Fab, Tooltip } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useEffect, useState } from "react";
-import useScrollToTop from "../hooks/useScrollToTop";
+import useScrollToTop from "../../hooks/useScrollToTop";
 
 const StyledFab = styled(Fab)(({ theme }) => ({
   position: "fixed",

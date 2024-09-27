@@ -1,14 +1,14 @@
 import React from "react";
 import { Box, Card, CardMedia } from "@mui/material";
-import useModalStore from "../store/ModalStore";
+import useModalStore from "../../store/ModalStore";
 
-interface JerseyCardProps {
+interface TeamJerseyCardProps {
   image: string;
   type: string;
   season: string;
 }
 
-const JerseyCard: React.FC<JerseyCardProps> = ({ image, type, season }) => {
+const TeamJerseyCard: React.FC<TeamJerseyCardProps> = ({ image, type, season }) => {
   const openModal = useModalStore((state) => state.openModal);
 
   return (
@@ -70,4 +70,4 @@ const JerseyCard: React.FC<JerseyCardProps> = ({ image, type, season }) => {
   );
 };
 
-export default JerseyCard;
+export default TeamJerseyCard;

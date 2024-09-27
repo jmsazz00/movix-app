@@ -1,11 +1,11 @@
 import { Box, CircularProgress, Divider } from "@mui/material";
-import useJerseys from "../hooks/useJerseys";
-import DetailHeading from "./DetailHeading";
-import GenericSelector from "./GenericSelector";
-import JerseyCard from "./JerseyCard";
-import useSeasons from "../hooks/useSeasons";
-import useSelectedSeason from "../hooks/useSelectedSeason";
-import useFilteredJerseys from "../hooks/useFilteredJerseys";
+import useJerseys from "../../hooks/useJerseys";
+import TeamJerseyCard from "./TeamJerseyCard";
+import useSeasons from "../../hooks/useSeasons";
+import useSelectedSeason from "../../hooks/useSelectedSeason";
+import useFilteredJerseys from "../../hooks/useFilteredJerseys";
+import DetailHeading from "../common/DetailHeading";
+import GenericSelector from "../common/GenericSelector";
 
 interface Props {
   teamId: string;
@@ -43,7 +43,7 @@ const TeamJerseys = ({ teamId }: Props) => {
 
         <Box sx={{ display: "flex", overflowX: "auto", gap: 2, p: 1, pb: 2 }}>
           {filteredJerseys?.map((jersey) => (
-            <JerseyCard
+            <TeamJerseyCard
               key={jersey.idEquipment}
               image={jersey.strEquipment}
               type={jersey.strType}

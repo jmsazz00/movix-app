@@ -1,11 +1,11 @@
 import { AppBar, Box, Toolbar, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import darkLogo from "../assets/movix-black.png";
-import whiteLogo from "../assets/movix-white.png";
-import "../css/NavBar.css";
-import useScrollToTop from "../hooks/useScrollToTop";
-import navHeight from "../utilities/navHeight";
+import useScrollToTop from "../../hooks/useScrollToTop";
+import navHeight from "../../utilities/navHeight";
+import darkLogo from "../../assets/movix-black.png";
+import whiteLogo from "../../assets/movix-white.png";
+import "../../css/NavBar.css";
 import CustomizedInput from "./CustomizedInput";
 import ModeSwitcher from "./ModeSwitcher";
 

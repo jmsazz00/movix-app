@@ -1,8 +1,8 @@
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import { Box, CircularProgress, Divider, Stack } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
-import useFilteredCountries from "../hooks/useFilteredCountries";
-import useScrollToTop from "../hooks/useScrollToTop";
+import useFilteredCountries from "../../hooks/useFilteredCountries";
+import useScrollToTop from "../../hooks/useScrollToTop";
 import CountryInput from "./CountryInput";
 import CountryItem from "./CountryItem";
 

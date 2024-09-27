@@ -1,5 +1,5 @@
 import HighlightedTeams from "./HighlightedTeams";
-import MainHeading from "./MainHeading";
+import MainHeading from "../common/MainHeading";
 
 const TopTeams = () => {
   return (

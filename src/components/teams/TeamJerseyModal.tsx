@@ -1,8 +1,8 @@
 import { Box, Modal, IconButton } from "@mui/material";
-import useModalStore from "../store/ModalStore";
+import useModalStore from "../../store/ModalStore";
 import CloseIcon from "@mui/icons-material/Close";
 
-const JerseyModal = () => {
+const TeamJerseyModal = () => {
   const { isOpen, selectedJersey, closeModal } = useModalStore();
 
   if (!selectedJersey) return null;
@@ -56,4 +56,4 @@ const JerseyModal = () => {
   );
 };
 
-export default JerseyModal;
+export default TeamJerseyModal;

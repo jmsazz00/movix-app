@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-import Detail from "../entities/Detail";
+import Detail from "../../entities/Detail";
 
 interface DetailsGridProps {
   data: Detail[];

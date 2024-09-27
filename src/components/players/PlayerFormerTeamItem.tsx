@@ -1,15 +1,15 @@
 import { Box, Typography, Avatar, Stack, Chip } from "@mui/material";
-import { FormerTeam } from "../entities/FormerTeams";
-import TimelineItem from "./TimeLineItem";
+import { FormerTeam } from "../../entities/FormerTeams";
 import { AccessTime, SwapHoriz } from "@mui/icons-material";
+import TimelineItem from "../common/TimeLineItem";
 
-interface FormerTeamItemProps {
+interface PlayerFormerTeamItemProps {
   team: FormerTeam;
   index: number;
   totalTeams: number;
 }
 
-const FormerTeamItem = ({ team, index, totalTeams }: FormerTeamItemProps) => {
+const PlayerFormerTeamItem = ({ team, index, totalTeams }: PlayerFormerTeamItemProps) => {
   return (
     <TimelineItem index={index} totalItems={totalTeams}>
       <Stack
@@ -68,4 +68,4 @@ const FormerTeamItem = ({ team, index, totalTeams }: FormerTeamItemProps) => {
   );
 };
 
-export default FormerTeamItem;
+export default PlayerFormerTeamItem;

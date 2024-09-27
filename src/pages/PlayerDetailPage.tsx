@@ -1,17 +1,19 @@
 import { Alert, Box, CircularProgress } from "@mui/material";
+import { lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
-import Badge from "../components/Badge";
-import DefaultDescription from "../components/DefaultDescription";
-import PlayerDetails from "../components/PlayerDetails";
-import PlayerGallery from "../components/PlayerGallery";
-import SocialMedia from "../components/SocialMedia";
+import Badge from "../components/common/Badge";
+import DefaultDescription from "../components/common/DefaultDescription";
+import LazyLoad from "../components/common/LazyLoad";
+import SocialMedia from "../components/common/SocialMedia";
+import PlayerDetails from "../components/players/PlayerDetails";
+import PlayerGallery from "../components/players/PlayerGallery";
+import { leftContentBoxStyles } from "../css/styles";
 import usePlayer from "../hooks/usePlayer";
 import DetailLayout from "./DetailLayout";
-import { leftContentBoxStyles } from "../css/styles";
-import { lazy, Suspense } from "react";
-import LazyLoad from "../components/LazyLoad";
 
-const PlayerFormerTeams = lazy(() => import("../components/PlayerFormerTeams"));
+const PlayerFormerTeams = lazy(
+  () => import("../components/players/PlayerFormerTeams")
+);
 
 const PlayerDetailPage = () => {
   const { player } = useParams();

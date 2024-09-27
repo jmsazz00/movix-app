@@ -1,9 +1,9 @@
 import { Alert } from "@mui/material";
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
-import countries from "../utilities/countries";
+import countries from "../../utilities/countries";
 import CountryTeams from "./CountryTeams";
-import MainHeading from "./MainHeading";
+import MainHeading from "../common/MainHeading";
 
 const CountryTeamsContainer = () => {
   const { country } = useParams();

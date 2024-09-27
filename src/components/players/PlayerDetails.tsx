@@ -1,5 +1,5 @@
-import calculateAge from "../utilities/calculateAge";
-import DetailsGrid from "./DetailsGrid";
+import calculateAge from "../../utilities/calculateAge";
+import DetailsGrid from "../common/DetailsGrid";
 
 interface PlayerDetailsProps {
   team: string;

@@ -1,5 +1,5 @@
 import { Box, ImageList, ImageListItem } from "@mui/material";
-import DetailHeading from "./DetailHeading";
+import DetailHeading from "../common/DetailHeading";
 
 interface PlayerGalleryProps {
   images: string[];

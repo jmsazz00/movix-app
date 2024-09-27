@@ -1,12 +1,12 @@
 import { Alert, Box, Grid } from "@mui/material";
 import { useMemo } from "react";
-import useTeams from "../hooks/useTeams";
-import useTeamSorting from "../hooks/useTeamSorting";
-import useTeamQueryStore from "../store/TeamQueryStore";
-import CustomGridItem from "./CustomGridItem";
-import SortingOptions from "./SortingOptions";
-import TeamCard from "./TeamCard";
-import TeamCardSkeleton from "./TeamCardSkeleton";
+import useTeams from "../../hooks/useTeams";
+import useTeamSorting from "../../hooks/useTeamSorting";
+import useTeamQueryStore from "../../store/TeamQueryStore";
+import CustomGridItem from "../common/CustomGridItem";
+import SortingOptions from "../common/SortingOptions";
+import TeamCard from "../teams/TeamCard";
+import TeamCardSkeleton from "../teams/TeamCardSkeleton";
 
 interface Props {
   selectedCountry: string;

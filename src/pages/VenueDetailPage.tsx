@@ -1,10 +1,10 @@
 import { Alert, CircularProgress } from "@mui/material";
 import { useParams } from "react-router-dom";
-import VenueDescription from "../components/VenueDescription";
-import VenueDetailsSection from "../components/VenueDetailsSection";
-import VenueHero from "../components/VenueHero";
+import VenueDescription from "../components/venues/VenueDescription";
+import VenueDetailsSection from "../components/venues/VenueDetailsSection";
+import VenueHero from "../components/venues/VenueHero";
+import VenueImageGallery from "../components/venues/VenueImageGallery";
 import useVenue from "../hooks/useVenue";
-import VenueImageGallery from "../components/VenueImageGallery";
 
 const VenueDetailPage = () => {
   const { venue } = useParams();

@@ -1,5 +1,5 @@
 import { Alert } from "@mui/material";
-import useTeam from "../hooks/useTeam";
+import useTeam from "../../hooks/useTeam";
 import TeamCard from "./TeamCard";
 import TeamCardSkeleton from "./TeamCardSkeleton";
 

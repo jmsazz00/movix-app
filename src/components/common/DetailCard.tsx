@@ -1,5 +1,5 @@
 import { Card, Typography } from "@mui/material";
-import Detail from "../entities/Detail";
+import Detail from "../../entities/Detail";
 
 interface Props {
   detail: Detail;

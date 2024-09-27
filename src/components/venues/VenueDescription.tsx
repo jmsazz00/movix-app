@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import CollapsableText from "./CollapsableText";
+import CollapsableText from "../common/CollapsableText";
 
 interface Props {
   venueName: string;
