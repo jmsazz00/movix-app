@@ -42,7 +42,11 @@ const CountryList = () => {
         />
       </Box>
 
-      <Stack spacing={1} divider={<Divider flexItem />}>
+      <Stack
+        spacing={1}
+        divider={<Divider flexItem />}
+        sx={{ minHeight: `calc(100vh - 140px)` }}
+      >
         {filteredCountries?.map((c) => (
           <CountryItem
             key={c.name_en}
