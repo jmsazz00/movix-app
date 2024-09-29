@@ -78,7 +78,7 @@ const NavBar = () => {
               scrollToTop();
             }}
             sx={{
-              mx: 2,
+              mx: { xs: 1.25, md: 2 },
               display: "flex",
               cursor: "pointer",
             }}

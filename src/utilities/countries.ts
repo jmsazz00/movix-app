@@ -87,8 +87,10 @@ const options = [
   { fullName: "Russia", code: "RU" },
   { fullName: "Saudi Arabia", code: "SA" },
   { fullName: "South Africa", code: "ZA" },
+  { fullName: "Spain", code: "ES" },
   { fullName: "United Kingdom", code: "UK" },
   { fullName: "United States", code: "US" },
+  { fullName: "Uruguay", code: "UY" },
 ];
 
 export default options;

@@ -12,8 +12,7 @@ const ModeSwitcher = () => {
     <Box
       sx={{
         borderRadius: 1,
-        p: 2,
-        pl: 0,
+        p: { xs: 0.5, md: 1.75 },
       }}
     >
       <IconButton onClick={colorMode.toggleColorMode} color="inherit">

@@ -37,7 +37,7 @@ const CustomizedInput = ({
         maxWidth: maxWidth,
         display: "flex",
         alignItems: "center",
-        mx: 2,
+        mx: 0.75,
         flexGrow: 1,
       }}
     >
