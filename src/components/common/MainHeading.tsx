@@ -12,7 +12,7 @@ const MainHeading = ({ title }: Props) => {
   };
 
   return (
-    <Box mb={{ xs: 2, md: 0.5 }}>
+    <Box mb={{ xs: 1, md: 0.5 }}>
       <Box
         display="flex"
         alignItems="center"
@@ -30,7 +30,7 @@ const MainHeading = ({ title }: Props) => {
             letterSpacing: "1px",
             margin: "0 5px",
             textAlign: "center",
-            fontSize: { xs: "1.5rem", md: "3rem" },
+            fontSize: { xs: "1.75rem", md: "3rem" },
           }}
         >
           {title}

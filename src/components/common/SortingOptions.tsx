@@ -18,13 +18,23 @@ const SortingOptions = ({ onChange, value }: SortingOptionsProps) => {
     onChange(selectedValue);
   };
 
+  const styles = {
+    fontSize: { xs: "0.825rem", md: "1rem" },
+  };
+
   return (
-    <Box display={"flex"} justifyContent={{ xs: "center", md: "flex-end" }}>
-      <FormControl size="small" sx={{ mb: 1.5, mr: 1 }}>
-        <Select value={value} onChange={handleSelectChange}>
-          <MenuItem value="name_asc">Sort A-Z</MenuItem>
-          <MenuItem value="name_desc">Sort Z-A</MenuItem>
-          <MenuItem value="rating">Sort by Rating</MenuItem>
+    <Box display="flex" justifyContent="right">
+      <FormControl variant="standard" size="small" sx={{ mb: 1.5, mr: 1 }}>
+        <Select value={value} onChange={handleSelectChange} sx={styles}>
+          <MenuItem value="name_asc" sx={styles}>
+            Sort A-Z
+          </MenuItem>
+          <MenuItem value="name_desc" sx={styles}>
+            Sort Z-A
+          </MenuItem>
+          <MenuItem value="rating" sx={styles}>
+            Sort by: Rating
+          </MenuItem>
         </Select>
       </FormControl>
     </Box>
