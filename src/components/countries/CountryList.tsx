@@ -1,5 +1,5 @@
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
-import { Box, CircularProgress, Divider, Stack } from "@mui/material";
+import { Alert, Box, CircularProgress, Divider, Stack } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import useFilteredCountries from "../../hooks/useFilteredCountries";
 import useScrollToTop from "../../hooks/useScrollToTop";
@@ -47,6 +47,7 @@ const CountryList = () => {
         divider={<Divider flexItem />}
         sx={{ minHeight: `calc(100vh - 140px)` }}
       >
+        {filteredCountries?.length === 0 && <Alert severity="error">N/A</Alert>}
         {filteredCountries?.map((c) => (
           <CountryItem
             key={c.name_en}
