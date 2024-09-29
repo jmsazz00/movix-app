@@ -1,4 +1,11 @@
-import { Box, MenuItem, Select, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Box,
+  MenuItem,
+  Select,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import useFilteredCountries from "../../hooks/useFilteredCountries";
 
@@ -29,7 +36,9 @@ const CountryDropdown = () => {
               ".MuiSelect-select": {
                 display: "flex",
                 alignItems: "center",
+                padding: { xs: "9px 12px", md: "12px 16px" },
               },
+              fontSize: { xs: "0.875rem", md: "1rem" },
             }}
           >
             {filteredCountries?.map((option) => (
@@ -39,20 +48,25 @@ const CountryDropdown = () => {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  padding: "10px 15px",
+                  padding: { xs: "8px 12px", md: "10px 15px" }, 
                   transition: "background-color 0.3s",
                   "&:hover": {
                     backgroundColor: theme.palette.action.hover,
                   },
                 }}
               >
-                {/* Flag image */}
                 <img
                   src={option.flag_32_url}
                   alt={option.fullName}
                   style={{ width: 24, height: 16, marginRight: 10 }}
                 />
-                {option.fullName}
+                <Typography
+                  sx={{
+                    fontSize: { xs: "0.875rem", md: "1rem" },
+                  }}
+                >
+                  {option.fullName}
+                </Typography>
               </MenuItem>
             ))}
           </Select>

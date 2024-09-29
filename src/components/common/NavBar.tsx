@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, useTheme } from "@mui/material";
+import { AppBar, Box, Toolbar, useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useScrollToTop from "../../hooks/useScrollToTop";
@@ -14,6 +14,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const scrollToTop = useScrollToTop(false);
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const [isHidden, setIsHidden] = useState<boolean>(false);
@@ -86,7 +87,7 @@ const NavBar = () => {
             <img
               src={theme.palette.mode === "dark" ? darkLogo : whiteLogo}
               alt="Logo"
-              height={45}
+              height={isSmallScreen ? 36 : 45}
             />
           </Box>
 

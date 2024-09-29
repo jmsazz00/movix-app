@@ -7,7 +7,7 @@ interface Props {
 
 const MainHeading = ({ title }: Props) => {
   const styles = {
-    fontSize: 64,
+    fontSize: { xs: 32, md: 64 },
     color: "#ffc107",
   };
 
@@ -21,24 +21,25 @@ const MainHeading = ({ title }: Props) => {
         padding={1}
         borderRadius={1}
       >
-        <StarBorderPurple500TwoToneIcon style={styles} />
+        <StarBorderPurple500TwoToneIcon sx={styles} />
         <Typography
           variant="h3"
-          style={{
+          sx={{
             fontWeight: "bold",
             textTransform: "uppercase",
             letterSpacing: "1px",
             margin: "0 5px",
             textAlign: "center",
+            fontSize: { xs: "1.5rem", md: "3rem" },
           }}
         >
           {title}
         </Typography>
-        <StarBorderPurple500TwoToneIcon style={styles} />
+        <StarBorderPurple500TwoToneIcon sx={styles} />
       </Box>
       <Divider
         sx={{
-          width: "175px",
+          width: { xs: "120px", md: "175px" },
           borderBottomWidth: 3,
           borderColor: "#ffc107",
           margin: "0 auto",
