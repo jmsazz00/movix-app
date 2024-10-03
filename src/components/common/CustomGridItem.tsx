@@ -22,6 +22,7 @@ const CustomGridItem: React.FC<CustomGridItemProps> = ({
         sx={{
           p: 2,
           minHeight: "400px",
+          mx: { xs: 1, md: 0 },
           bgcolor: theme.palette.mode === "dark" ? "#000000cc" : "#e3f2fd",
         }}
         {...paperProps}

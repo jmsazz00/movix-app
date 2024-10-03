@@ -7,12 +7,17 @@ interface BadgeProps {
 
 const Badge = ({ badgeUrl, name }: BadgeProps) => (
   <Box>
-    <img
-      src={badgeUrl + "/small"}
+    <Box
+      component="img"
+      src={`${badgeUrl}/small`}
       alt={`${name} badge`}
-      style={{
+      sx={{
         objectFit: "contain",
-        height: 185,
+        width: "100%",
+        maxHeight: {
+          xs: "135px",
+          sm: "185px",
+        },
       }}
     />
     <Typography mt={1} fontWeight={"bold"} variant="h5" textAlign={"center"}>

@@ -36,7 +36,6 @@ const TeamCard = ({ teamData }: Props) => {
     <div id={idTeam}>
       <Card
         sx={{
-          maxWidth: 400,
           height: "100%",
           display: "flex",
           flexDirection: "column",
