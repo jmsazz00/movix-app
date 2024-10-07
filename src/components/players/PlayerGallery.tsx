@@ -1,4 +1,4 @@
-import { Box, ImageList, ImageListItem } from "@mui/material";
+import { Box, Divider, ImageList, ImageListItem } from "@mui/material";
 import DetailHeading from "../common/DetailHeading";
 
 interface PlayerGalleryProps {
@@ -13,6 +13,7 @@ const PlayerGallery = ({ images }: PlayerGalleryProps) => {
   return (
     <Box mt={4}>
       <DetailHeading title={"Gallery"} />
+      <Divider/>
       <ImageList cols={2} gap={8} sx={{ width: "100%", height: "auto" }}>
         {validImages.map((image, index) => (
           <ImageListItem key={index}>

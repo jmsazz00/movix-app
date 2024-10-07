@@ -11,7 +11,7 @@ const DetailsGrid = ({ data }: DetailsGridProps) => {
   const theme = useTheme();
 
   return (
-    <Box my={3.5}>
+    <Box my={{ xs: 1.75, md: 3.5 }}>
       <Grid container spacing={0} sx={{ textAlign: "center" }}>
         {data.map((item, index) => (
           <Grid
