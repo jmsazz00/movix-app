@@ -1,11 +1,12 @@
-import { AppBar, Box, Toolbar, useMediaQuery, useTheme } from "@mui/material";
+import { AppBar, Box, Toolbar, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import useScrollToTop from "../../hooks/useScrollToTop";
-import navHeight from "../../utilities/navHeight";
 import darkLogo from "../../assets/movix-black.png";
 import whiteLogo from "../../assets/movix-white.png";
 import "../../css/NavBar.css";
+import useResponsive from "../../hooks/useResponsive";
+import useScrollToTop from "../../hooks/useScrollToTop";
+import navHeight from "../../utilities/navHeight";
 import CustomizedInput from "./CustomizedInput";
 import ModeSwitcher from "./ModeSwitcher";
 
@@ -14,7 +15,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const scrollToTop = useScrollToTop(false);
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const { isMobile } = useResponsive();
 
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const [isHidden, setIsHidden] = useState<boolean>(false);
@@ -87,7 +88,7 @@ const NavBar = () => {
             <img
               src={theme.palette.mode === "dark" ? darkLogo : whiteLogo}
               alt="Logo"
-              height={isSmallScreen ? 36 : 45}
+              height={isMobile ? 36 : 45}
             />
           </Box>
 

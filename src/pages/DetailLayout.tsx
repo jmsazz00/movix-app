@@ -1,4 +1,5 @@
-import { Box, Divider, Grid, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Divider, Grid } from "@mui/material";
+import useResponsive from "../hooks/useResponsive";
 
 interface DetailLayoutProps {
   leftContent: JSX.Element;
@@ -6,8 +7,7 @@ interface DetailLayoutProps {
 }
 
 const DetailLayout = ({ leftContent, rightContent }: DetailLayoutProps) => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const { isMobile } = useResponsive();
 
   return (
     <Box p={{ xs: 1.75, md: 3.5 }}>
@@ -33,12 +33,11 @@ const DetailLayout = ({ leftContent, rightContent }: DetailLayoutProps) => {
               width: isMobile ? "75%" : "auto",
               height: isMobile ? "auto" : "100%",
               mr: { md: 2 },
-              my: { xs: 1, md: 0 },
-              mb: { xs: 1.75, md: 0 },
-              bgcolor:
+              mb: { xs: 0.8, md: 0 },
+              bgcolor: (theme) =>
                 theme.palette.mode === "dark"
                   ? "rgba(255, 255, 255, 0.12)"
-                  : "rgba(0, 0, 0, 0.1)", // Subtle color based on theme
+                  : "rgba(0, 0, 0, 0.1)",
               opacity: 0.75,
               borderRadius: 1,
               borderBottomWidth: isMobile ? 2 : 0,

@@ -1,7 +1,8 @@
-import { Box, Paper, styled, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Paper, styled } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import CountryDropdown from "../components/countries/CountryDropdown";
 import CountryList from "../components/countries/CountryList";
+import useResponsive from "../hooks/useResponsive";
 import navHeight from "../utilities/navHeight";
 
 export const Item = styled(Paper)(({ theme }) => ({
@@ -14,8 +15,7 @@ export const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const HomePage = () => {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const { isMobile } = useResponsive();
 
   return (
     <Box
@@ -42,7 +42,7 @@ const HomePage = () => {
 
       <Box gridArea={"main"}>
         <Item>
-          {isSmallScreen && <CountryDropdown />}
+          {isMobile && <CountryDropdown />}
           <Outlet />
         </Item>
       </Box>

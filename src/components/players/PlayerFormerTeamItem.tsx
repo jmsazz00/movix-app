@@ -9,7 +9,11 @@ interface PlayerFormerTeamItemProps {
   totalTeams: number;
 }
 
-const PlayerFormerTeamItem = ({ team, index, totalTeams }: PlayerFormerTeamItemProps) => {
+const PlayerFormerTeamItem = ({
+  team,
+  index,
+  totalTeams,
+}: PlayerFormerTeamItemProps) => {
   return (
     <TimelineItem index={index} totalItems={totalTeams}>
       <Stack
@@ -23,7 +27,14 @@ const PlayerFormerTeamItem = ({ team, index, totalTeams }: PlayerFormerTeamItemP
           alt={team.strFormerTeam}
           sx={{ width: 40, height: 40 }}
         />
-        <Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            flexGrow: 1,
+            gap: 0.5,
+          }}
+        >
           <Stack
             direction="row"
             alignItems="center"
