@@ -16,7 +16,7 @@ const Badge = ({ badgeUrl, name }: BadgeProps) => (
         width: "100%",
         maxHeight: {
           xs: "135px",
-          sm: "185px",
+          md: "185px",
         },
       }}
     />

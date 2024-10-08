@@ -12,6 +12,7 @@ import { Team } from "../../entities/Team";
 import calculateRating from "../../utilities/calculateRating";
 import TeamShortDesc from "./TeamShortDesc";
 import Badge from "../common/Badge";
+import useResponsive from "../../hooks/useResponsive";
 
 interface Props {
   teamData: Team;
@@ -30,7 +31,9 @@ const TeamCard = ({ teamData }: Props) => {
     strDescriptionEN,
   } = teamData;
 
-  const descriptionLimit = 180;
+  const { isMobile, isTablet } = useResponsive();
+
+  const descriptionLimit = isMobile ? 105 : isTablet ? 125 : 180;
 
   return (
     <div id={idTeam}>

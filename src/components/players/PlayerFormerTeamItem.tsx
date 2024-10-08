@@ -67,6 +67,10 @@ const PlayerFormerTeamItem = ({
                 fontWeight: "bold",
                 color: "primary.main",
                 opacity: 0.8,
+                fontSize: {
+                  xs: ".795rem",
+                  md: ".88rem",
+                },
               }}
             >
               Joined: {new Date(team.strJoined).toLocaleDateString()} -
