@@ -41,6 +41,12 @@ const VenueHero = ({ imageUrl, venueName, alternateName }: Props) => (
         borderRadius: "4px",
         maxWidth: "70%",
         margin: "16px",
+        fontSize: {
+          xs: "2.25rem",
+          sm: "2.75rem",
+          md: "3.25rem",
+          lg: "3.75rem",
+        },
         transition: "background-color 0.3s ease-in-out",
         ...(theme) =>
           theme.palette.mode === "light" && {

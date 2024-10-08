@@ -33,22 +33,34 @@ const VenueImageGallery = ({ imagesSrc }: Props) => {
             overflow: "hidden",
             boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
             position: "relative",
-            transition: "transform 0.3s ease-in-out",
+            transition: {
+              xs: "none",
+              sm: "transform 0.3s ease-in-out",
+            },
             "&:hover": {
-              transform: "scale(1.05)",
+              transform: { xs: "none", sm: "scale(1.05)" },
               "&::after": {
-                opacity: 0,
+                opacity: { xs: 0, sm: 0 },
               },
             },
             "&:not(:hover)": {
-              transition: "transform 0.3s ease-in-out",
+              transition: {
+                xs: "none",
+                sm: "transform 0.3s ease-in-out",
+              },
             },
             "&::after": {
               content: '""',
               position: "absolute",
               inset: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.3)",
-              transition: "opacity 0.3s ease-in-out",
+              backgroundColor: {
+                xs: "transparent",
+                sm: "rgba(0, 0, 0, 0.3)",
+              },
+              transition: {
+                xs: "none",
+                sm: "opacity 0.3s ease-in-out",
+              },
             },
           }}
         />

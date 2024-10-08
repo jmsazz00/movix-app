@@ -11,7 +11,7 @@ const VenueDetailsSection = ({ details }: Props) => (
     sx={{
       padding: "24px",
       display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+      gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
       gap: "16px",
       mb: 3,
     }}
