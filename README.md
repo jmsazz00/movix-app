@@ -1,4 +1,5 @@
-This is a fun and interactive sports-related web app. 
+This is a fun and interactive sports-related web app.
+
 NOTE: All data is being fetched from the sportsDB api, from which i have used the free api-token
 
 Features: 
